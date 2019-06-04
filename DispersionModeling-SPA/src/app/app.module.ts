@@ -12,15 +12,13 @@ import { AuthService } from './_services/auth.service';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CreateMapService } from './_services/create-map.service';
-import { StepperOverviewComponent } from './stepper-overview/stepper-overview.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
    declarations: [
       AppComponent,
       routingComponents,
-      NavComponent,
-      StepperOverviewComponent
+      NavComponent
    ],
    imports: [
       BrowserModule,
