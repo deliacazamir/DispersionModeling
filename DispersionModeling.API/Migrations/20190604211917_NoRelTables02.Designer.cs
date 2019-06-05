@@ -4,14 +4,16 @@ using DispersionModeling.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DispersionModeling.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190604211917_NoRelTables02")]
+    partial class NoRelTables02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,9 +98,19 @@ namespace DispersionModeling.API.Migrations
 
                     b.Property<string>("ChemicalFormula");
 
+                    b.Property<bool>("IsCarcinogenic");
+
+                    b.Property<bool>("IsGasOrSolid");
+
+                    b.Property<bool>("IsOrganic");
+
+                    b.Property<int>("LegislativeValue");
+
                     b.Property<string>("Measure");
 
                     b.Property<string>("Name");
+
+                    b.Property<int>("SedimentationSpeed");
 
                     b.HasKey("PollutantListID");
 

@@ -17,40 +17,40 @@ namespace DispersionModeling.API.Data
 
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<DispersionModel>()
-                .HasOne(p => p.PollutionSource)
-                .WithMany(b => b.DispersionModels)
-                .HasForeignKey(p => p.PollutionSourceId);
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     modelBuilder.Entity<DispersionModel>()
+        //         .HasOne(p => p.PollutionSource)
+        //         .WithMany(b => b.DispersionModels)
+        //         .HasForeignKey(p => p.PollutionSourceId);
 
-            modelBuilder.Entity<PollutionSource>()
-                .HasOne(p => p.StationType)
-                .WithMany(b => b.PollutionSources)
-                .HasForeignKey(p => p.StationTypeId);
+        //     modelBuilder.Entity<PollutionSource>()
+        //         .HasOne(p => p.StationType)
+        //         .WithMany(b => b.PollutionSources)
+        //         .HasForeignKey(p => p.StationTypeId);
 
-            modelBuilder.Entity<PollutantList>()
-                .HasOne(p => p.PollutionSource)
-                .WithMany(b => b.PollutantLists)
-                .HasForeignKey(p => p.PollutionSourceId);
+        //     modelBuilder.Entity<PollutantList>()
+        //         .HasOne(p => p.PollutionSource)
+        //         .WithMany(b => b.PollutantLists)
+        //         .HasForeignKey(p => p.PollutionSourceId);
 
-            // modelBuilder.Entity<PollutantStation>()
-            //     .HasKey(t => new { t.StationTypeID, t.PollutantListID });
+        //     // modelBuilder.Entity<PollutantStation>()
+        //     //     .HasKey(t => new { t.StationTypeID, t.PollutantListID });
 
-            //  modelBuilder.Entity<PollutantStation>()
-            //     .HasOne(pt => pt.StationType)
-            //     .WithMany(p => p.PollutantStations)
-            //     .HasForeignKey(pt => pt.StationTypeID)
-            //     .OnDelete(DeleteBehavior.Cascade);
+        //     //  modelBuilder.Entity<PollutantStation>()
+        //     //     .HasOne(pt => pt.StationType)
+        //     //     .WithMany(p => p.PollutantStations)
+        //     //     .HasForeignKey(pt => pt.StationTypeID)
+        //     //     .OnDelete(DeleteBehavior.Cascade);
                 
 
-            // modelBuilder.Entity<PollutantStation>()
-            //     .HasOne(pt => pt.PollutantList)
-            //     .WithMany(t => t.PollutantStations)
-            //     .HasForeignKey(pt => pt.PollutantListID)
-            //     .OnDelete(DeleteBehavior.Cascade);
+        //     // modelBuilder.Entity<PollutantStation>()
+        //     //     .HasOne(pt => pt.PollutantList)
+        //     //     .WithMany(t => t.PollutantStations)
+        //     //     .HasForeignKey(pt => pt.PollutantListID)
+        //     //     .OnDelete(DeleteBehavior.Cascade);
                 
-        }
+        // }
 
     }
 }

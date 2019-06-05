@@ -32,14 +32,18 @@
                             <i class="fas fa-door-open"></i>
                         </div>
                     </div>
-                    <input name="SourceName" #SourceName="ngModel" [(ngModel)]="service.formData.SourceName" class="form-control" placeholder="Pollutin Source Name" required>
+                    <input name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" class="form-control" placeholder="Pollutin Source Name" required>
                 </div>
             </div>
             <button type="button" class="btn btn-primary" (click)="nextForm2()">Next</button>
         </form>
 
         <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" *ngIf="var3">
-            <input type="hidden" name="Id" [value]="service.formData.Id">
+            <input type="hidden" name="PollutantListID" [value]="service.formData.PollutantListID">
+            <div class="steptwo"></div>
+            <div style="height:30px"> </div>
+            <h2>Step Two</h2>
+            <hr style="height:30px">
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -47,7 +51,7 @@
                             <i class="fas fa-door-open"></i>
                         </div>
                     </div>
-                    <input name="SourceName" #SourceName="ngModel" [(ngModel)]="service.formData.SourceName" class="form-control" placeholder="Pollutin Source Name" required>
+                    <input name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" class="form-control" placeholder="Pollutin Source Name" required>
                 </div>
             </div>
             <div class="form-group">
@@ -57,9 +61,20 @@
                             <i class="fas fa-hamsa"></i>
                         </div>
                     </div>
-                    <input name="Description" #Description="ngModel" [(ngModel)]="service.formData.Description" class="form-control" placeholder="Pollutin Source Description" required>
+                    <input name="ChemicalFormula" #ChemicalFormula="ngModel" [(ngModel)]="service.formData.ChemicalFormula" class="form-control" placeholder="Chemical Formula" required>
                 </div>
             </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-hamsa"></i>
+                        </div>
+                    </div>
+                    <input name="Measure" #Measure="ngModel" [(ngModel)]="service.formData.Measure" class="form-control" placeholder="Measure" required>
+                </div>
+            </div>
+
             <div class="form-group">
                 <button class="btn btn-succes btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-toilet-paper"></i>
                     Submit

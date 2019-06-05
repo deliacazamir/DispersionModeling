@@ -4,14 +4,16 @@ using DispersionModeling.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DispersionModeling.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190604211626_NoRelTalbes")]
+    partial class NoRelTalbes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,6 +39,8 @@ namespace DispersionModeling.API.Migrations
 
                     b.Property<double>("ExitTemperature");
 
+                    b.Property<int>("PollutionSourceId");
+
                     b.Property<int>("SmokeExitSpeed");
 
                     b.Property<int>("SolarRadiations");
@@ -48,6 +52,8 @@ namespace DispersionModeling.API.Migrations
                     b.Property<int>("WindSpeedAtTenMetters");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PollutionSourceId");
 
                     b.ToTable("DispersionModels");
                 });
@@ -96,11 +102,25 @@ namespace DispersionModeling.API.Migrations
 
                     b.Property<string>("ChemicalFormula");
 
+                    b.Property<bool>("IsCarcinogenic");
+
+                    b.Property<bool>("IsGasOrSolid");
+
+                    b.Property<bool>("IsOrganic");
+
+                    b.Property<int>("LegislativeValue");
+
                     b.Property<string>("Measure");
 
                     b.Property<string>("Name");
 
+                    b.Property<int>("PollutionSourceId");
+
+                    b.Property<int>("SedimentationSpeed");
+
                     b.HasKey("PollutantListID");
+
+                    b.HasIndex("PollutionSourceId");
 
                     b.ToTable("PollutantLists");
                 });
@@ -127,7 +147,11 @@ namespace DispersionModeling.API.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<int>("StationTypeId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("StationTypeId");
 
                     b.ToTable("PollutionSources");
                 });
@@ -160,6 +184,30 @@ namespace DispersionModeling.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("DispersionModeling.API.Models.DispersionModel", b =>
+                {
+                    b.HasOne("DispersionModeling.API.Models.PollutionSource", "PollutionSource")
+                        .WithMany("DispersionModels")
+                        .HasForeignKey("PollutionSourceId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DispersionModeling.API.Models.PollutantList", b =>
+                {
+                    b.HasOne("DispersionModeling.API.Models.PollutionSource", "PollutionSource")
+                        .WithMany("PollutantLists")
+                        .HasForeignKey("PollutionSourceId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("DispersionModeling.API.Models.PollutionSource", b =>
+                {
+                    b.HasOne("DispersionModeling.API.Models.StationType", "StationType")
+                        .WithMany()
+                        .HasForeignKey("StationTypeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

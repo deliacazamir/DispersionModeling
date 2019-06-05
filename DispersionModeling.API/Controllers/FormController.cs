@@ -17,7 +17,7 @@ namespace DispersionModeling.API.Controllers
             _context = context;
         }
 
-        //GET: api/Form
+        //GET: api/`    
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Form>>> GetForms () {
             return await _context.Forms.ToListAsync();
@@ -47,6 +47,7 @@ namespace DispersionModeling.API.Controllers
         public async Task<ActionResult<Form>> PostForm (Form form)
         {
             _context.Forms.Add(form);
+            
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetForm", new { id = form.Id}, form);

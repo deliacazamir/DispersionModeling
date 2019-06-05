@@ -24,7 +24,7 @@ namespace DispersionModeling.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<PollutantList>> GetPollutantLists (int id)
+        public async Task<ActionResult<PollutantList>> GetPollutantList (int id)
         {
             var pollutantList = await _context.PollutantLists.FindAsync();
 
@@ -36,14 +36,42 @@ namespace DispersionModeling.API.Controllers
             return pollutantList;
         }
 
+        //Insert
         [HttpPost]
-        public async Task<ActionResult<PollutantList>> PostPollutantLists (PollutantList pollutantList)
+        public async Task<ActionResult<PollutantList>> PostPollutantList (PollutantList pollutantList)
         {
             _context.PollutantLists.Add(pollutantList);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetForm", new { id = pollutantList.PollutantListID}, pollutantList);
+            return CreatedAtAction("GetPollutantList", new { id = pollutantList.PollutantListID}, pollutantList);
+            
         }
+
+
+        //Delete
+        [HttpPost("{id}")]
+        public async void  PostPollutantList (int id)
+        {
+            PollutantList  pollutantList=  new PollutantList(){PollutantListID = id};
+
+            _context.Entry(pollutantList).State = EntityState.Deleted;
+            
+            await _context.SaveChangesAsync();
+            
+        }
+
+           /* Update
+        [HttpPut("{id}")]
+        public async Task<ActionResult<PollutantList>> PutPollutantList (int id,[FromBody]PollutantList pollutantList)
+        {
+            _context.Update(pollutantList);
+            
+            await _context.SaveChangesAsync();
+            
+            return CreatedAtAction("GetPollutantList", new { id = pollutantList.PollutantListID}, pollutantList);
+            
+        }
+            */
 
 
     }

@@ -20,8 +20,8 @@ namespace DispersionModeling.API.Models
         public string WindDirection { get; set; }
         public int WindSpeedAtTenMetters { get; set; }
 
-        public int PollutionSourceId { get; set; }
-        public PollutionSource PollutionSource { get; set; }
+        // public int PollutionSourceId { get; set; }
+        // public PollutionSource PollutionSource { get; set; }
         
     }
 }

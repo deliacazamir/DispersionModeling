@@ -13,6 +13,7 @@ import { AuthService } from './_services/auth.service';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { CreateMapService } from './_services/create-map.service';
 import { AuthGuard } from './_guards/auth.guard';
+import { PollutantListService } from './_services/pollutant-list.service';
 
 @NgModule({
    declarations: [
@@ -31,7 +32,8 @@ import { AuthGuard } from './_guards/auth.guard';
    providers: [
       AuthService,
       CreateMapService,
-      AuthGuard
+      AuthGuard,
+      PollutantListService
    ],
    bootstrap: [
       AppComponent

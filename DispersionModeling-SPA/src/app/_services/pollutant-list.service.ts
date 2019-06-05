@@ -12,6 +12,6 @@ export class PollutantListService {
   constructor(private http: HttpClient) { }
 
   postForm(formData: PollutantList) {
-    return this.http.post( this.rootURL + 'Form', formData);
+    return this.http.post( this.rootURL + 'pollutantlist', formData);
   }
 }
