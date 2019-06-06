@@ -26,7 +26,7 @@ import { PollutantListService } from './_services/pollutant-list.service';
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
-      AgmCoreModule.forRoot({apiKey: 'insert key here'}),
+      AgmCoreModule.forRoot({apiKey: 'Insert key here'}),
       MDBBootstrapModule.forRoot()
    ],
    providers: [

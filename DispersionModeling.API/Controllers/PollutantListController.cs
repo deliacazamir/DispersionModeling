@@ -54,7 +54,7 @@ namespace DispersionModeling.API.Controllers
         {
             PollutantList  pollutantList=  new PollutantList(){PollutantListID = id};
 
-            _context.Entry(pollutantList).State = EntityState.Deleted;
+            _context.Entry(pollutantList).State = EntityState.Modified;
             
             await _context.SaveChangesAsync();
             
@@ -71,7 +71,8 @@ namespace DispersionModeling.API.Controllers
             return CreatedAtAction("GetPollutantList", new { id = pollutantList.PollutantListID}, pollutantList);
             
         }
-            */
+        */
+
 
 
     }
