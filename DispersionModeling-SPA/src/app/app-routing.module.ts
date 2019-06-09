@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { CreateMapComponent } from './create-map/create-map.component';
 import { AuthGuard } from './_guards/auth.guard';
 
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'about', component: AboutComponent},

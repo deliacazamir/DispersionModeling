@@ -8,8 +8,8 @@
             <ul class="stepper stepper-horizontal">
 
                 <!-- First Step -->
-                <li class="completed">
-                    <a href="#!">
+                <li class="completed" >
+                    <a (click)="nextForm1()">
                         <span class="circle">1</span>
                         <span class="label">First step</span>
                     </a>
@@ -17,15 +17,15 @@
 
                 <!-- Second Step -->
                 <li class="active">
-                    <a href="#!">
+                    <a (click)="nextForm2()">
                         <span class="circle">2</span>
                         <span class="label">Second step</span>
                     </a>
                 </li>
 
                 <!-- Third Step -->
-                <li class="warning">
-                    <a href="#!">
+                <li class="active" >
+                    <a (click)="nextForm3()">
                         <span class="circle">3</span>
                         <span class="label">Third step</span>
                     </a>
@@ -38,10 +38,11 @@
     </div>
     <!-- /.Horizontal Steppers -->
 
-    <div class="container" style="width:60%">
-    <div><app-dispersion-model-form></app-dispersion-model-form> </div>
-    <div> <app-pollution-source-form></app-pollution-source-form> </div>
-        
-
+     <div class="container" style="width:60%">
+        <div *ngIf="var1"> <app-user-data-form></app-user-data-form> </div>    
+        <div *ngIf="var2"> <app-dispersion-model-form></app-dispersion-model-form> </div>
+        <div *ngIf="var3"> <app-pollution-source-form></app-pollution-source-form> </div> 
     </div>
+
+    
 </body>

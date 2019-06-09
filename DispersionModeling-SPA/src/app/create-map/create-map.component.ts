@@ -15,18 +15,20 @@ export class CreateMapComponent implements OnInit {
   var2 = false;
   var3 = false;
 
-  nextForm0(){
+  nextForm1(){
     this.var1 = true;
     this.var2 = false;
     this.var3 = false;
   }
 
-  nextForm1() {
+  nextForm2() {
     this.var1  = false;
     this.var2 = true;
+    this.var3 = false;
   }
 
-  nextForm2() {
+  nextForm3() {
+    this.var1 = false;
     this.var2 = false;
     this.var3 = true;
   }

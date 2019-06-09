@@ -16,6 +16,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { PollutantListService } from './_services/pollutant-list.service';
 import { PollutionSourceFormComponent } from './Forms/pollution-source-form/pollution-source-form.component';
 import { DispersionModelFormComponent } from './Forms/dispersion-model-form/dispersion-model-form.component';
+import { UserDataFormComponent } from './Forms/user-data-form/user-data-form.component';
 
 @NgModule({
    declarations: [
@@ -23,7 +24,8 @@ import { DispersionModelFormComponent } from './Forms/dispersion-model-form/disp
       routingComponents,
       NavComponent,
       PollutionSourceFormComponent,
-      DispersionModelFormComponent
+      DispersionModelFormComponent,
+      UserDataFormComponent
    ],
    imports: [
       BrowserModule,
