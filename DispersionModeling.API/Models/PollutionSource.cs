@@ -15,11 +15,7 @@ namespace DispersionModeling.API.Models
         public double ChimneyHeight { get; set; }
         public double ChimneyDiameter { get; set; }
         public double MaxDistance { get; set; }
+        public string TerrainType { get; set; }
 
-        // public List<DispersionModel> DispersionModels { get; set; }
-        //  public List<PollutantList> PollutantLists { get; set; }
-
-        // public int StationTypeId { get; set; }
-        // public StationType StationType { get; set; }
     }
 }

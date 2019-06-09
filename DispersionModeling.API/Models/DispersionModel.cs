@@ -8,20 +8,16 @@ namespace DispersionModeling.API.Models
     {
         [Key]
         public int Id { get; set; }
-        public int SmokeExitSpeed { get; set; }
+        public double SmokeExitSpeed { get; set; }
         public double ExitTemperature { get; set; }
         public double EmissionOfPollutantsConcentration { get; set; }
-        public DateTime  CurrentDate { get; set; }
-        public string TerrainType { get; set; }
-        public int CloudCoverage { get; set; }
-        public int AtmosphericConditions { get; set; }
-        public int AirTemperature { get; set; }
-        public int SolarRadiations { get; set; }
+        public DateTime CurrentDate { get; set; }
+        public double CloudCoverage { get; set; }
+        public double AtmosphericConditions { get; set; }
+        public double AirTemperature { get; set; }
+        public double SolarRadiations { get; set; }
         public string WindDirection { get; set; }
-        public int WindSpeedAtTenMetters { get; set; }
-
-        // public int PollutionSourceId { get; set; }
-        // public PollutionSource PollutionSource { get; set; }
+        public double WindSpeedAtTenMetters { get; set; }
         
     }
 }

@@ -9,24 +9,24 @@ namespace DispersionModeling.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PollutantListController : ControllerBase
+    public class PollutantController : ControllerBase
     {
         private readonly DataContext _context;
-        public PollutantListController(DataContext context)
+        public PollutantController(DataContext context)
         {
             _context = context;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PollutantList>>> GetPollutantLists()
+        public async Task<ActionResult<IEnumerable<Pollutant>>> GetPollutants()
         {
-            return await _context.PollutantLists.ToListAsync();
+            return await _context.Pollutants.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<PollutantList>> GetPollutantList (int id)
+        public async Task<ActionResult<Pollutant>> GetPollutant (int id)
         {
-            var pollutantList = await _context.PollutantLists.FindAsync();
+            var pollutantList = await _context.Pollutants.FindAsync();
 
             if( pollutantList == null)
             {
@@ -38,12 +38,12 @@ namespace DispersionModeling.API.Controllers
 
         //Insert
         [HttpPost]
-        public async Task<ActionResult<PollutantList>> PostPollutantList (PollutantList pollutantList)
+        public async Task<ActionResult<Pollutant>> PostPollutantList (Pollutant pollutantList)
         {
-            _context.PollutantLists.Add(pollutantList);
+            _context.Pollutants.Add(pollutantList);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPollutantList", new { id = pollutantList.PollutantListID}, pollutantList);
+            return CreatedAtAction("GetPollutant", new { id = pollutantList.Id}, pollutantList);
             
         }
 
@@ -52,7 +52,7 @@ namespace DispersionModeling.API.Controllers
         [HttpPost("{id}")]
         public async void  PostPollutantList (int id)
         {
-            PollutantList  pollutantList=  new PollutantList(){PollutantListID = id};
+            Pollutant  pollutantList=  new Pollutant(){Id = id};
 
             _context.Entry(pollutantList).State = EntityState.Modified;
             
@@ -72,8 +72,6 @@ namespace DispersionModeling.API.Controllers
             
         }
         */
-
-
 
     }
 }

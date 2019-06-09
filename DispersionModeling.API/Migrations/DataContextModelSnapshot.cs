@@ -25,11 +25,11 @@ namespace DispersionModeling.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AirTemperature");
+                    b.Property<double>("AirTemperature");
 
-                    b.Property<int>("AtmosphericConditions");
+                    b.Property<double>("AtmosphericConditions");
 
-                    b.Property<int>("CloudCoverage");
+                    b.Property<double>("CloudCoverage");
 
                     b.Property<DateTime>("CurrentDate");
 
@@ -37,15 +37,15 @@ namespace DispersionModeling.API.Migrations
 
                     b.Property<double>("ExitTemperature");
 
-                    b.Property<int>("SmokeExitSpeed");
+                    b.Property<double>("SmokeExitSpeed");
 
-                    b.Property<int>("SolarRadiations");
+                    b.Property<double>("SolarRadiations");
 
                     b.Property<string>("TerrainType");
 
                     b.Property<string>("WindDirection");
 
-                    b.Property<int>("WindSpeedAtTenMetters");
+                    b.Property<double>("WindSpeedAtTenMetters");
 
                     b.HasKey("Id");
 
@@ -88,21 +88,31 @@ namespace DispersionModeling.API.Migrations
                     b.ToTable("GPSLocations");
                 });
 
-            modelBuilder.Entity("DispersionModeling.API.Models.PollutantList", b =>
+            modelBuilder.Entity("DispersionModeling.API.Models.Pollutant", b =>
                 {
-                    b.Property<int>("PollutantListID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("AgregationState");
+
                     b.Property<string>("ChemicalFormula");
 
-                    b.Property<string>("Measure");
+                    b.Property<bool>("IsCarcinogenic");
+
+                    b.Property<double>("LegislativeValue");
 
                     b.Property<string>("Name");
 
-                    b.HasKey("PollutantListID");
+                    b.Property<string>("OrganicType");
 
-                    b.ToTable("PollutantLists");
+                    b.Property<double>("SedimentationSpeed");
+
+                    b.Property<string>("Unit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Pollutants");
                 });
 
             modelBuilder.Entity("DispersionModeling.API.Models.PollutionSource", b =>
@@ -127,6 +137,8 @@ namespace DispersionModeling.API.Migrations
 
                     b.Property<string>("Name");
 
+                    b.Property<string>("TerrainType");
+
                     b.HasKey("Id");
 
                     b.ToTable("PollutionSources");
@@ -134,13 +146,13 @@ namespace DispersionModeling.API.Migrations
 
             modelBuilder.Entity("DispersionModeling.API.Models.StationType", b =>
                 {
-                    b.Property<int>("StationTypeID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name");
 
-                    b.HasKey("StationTypeID");
+                    b.HasKey("Id");
 
                     b.ToTable("StationTypes");
                 });

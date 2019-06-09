@@ -6,11 +6,8 @@ namespace DispersionModeling.API.Models
     public class StationType
     {
         [Key]
-        public int StationTypeID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
 
-        // public List<PollutionSource> PollutionSources { get; set; }
-
-        //public List<PollutantStation> PollutantStations { get; set; }
     }
 }
