@@ -1,6 +1,6 @@
 export class Dispersion {
 
-    PollutantListID: number;
+    Id: number;
     SmokeExitSpeed: number;
     ExitTemperature: number;
     EmissionOfPollutantsConcentration: number;
