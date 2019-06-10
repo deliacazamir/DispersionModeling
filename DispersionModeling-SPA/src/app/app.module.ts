@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -33,7 +35,9 @@ import { UserDataFormComponent } from './Forms/user-data-form/user-data-form.com
       HttpClientModule,
       FormsModule,
       AgmCoreModule.forRoot({apiKey: 'Insert key here'}),
-      MDBBootstrapModule.forRoot()
+      MDBBootstrapModule.forRoot(),
+      BrowserAnimationsModule,
+      ToastrModule.forRoot()
    ],
    providers: [
       AuthService,

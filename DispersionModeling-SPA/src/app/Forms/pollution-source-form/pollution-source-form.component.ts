@@ -1,6 +1,7 @@
 import { PollutionSourceService } from './../../_services/pollution-source.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-pollution-source-form',
@@ -9,7 +10,7 @@ import { NgForm } from '@angular/forms';
 })
 export class PollutionSourceFormComponent implements OnInit {
 
-  constructor(public service: PollutionSourceService) { }
+  constructor(public service: PollutionSourceService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -36,6 +37,7 @@ export class PollutionSourceFormComponent implements OnInit {
     this.service.postForm(form.value).subscribe(
       res => {
         this.resetForm(form);
+        this.toastr.success('Submitted Successfully', 'Dispersion Model');
       },
       err => {
         console.log(err);

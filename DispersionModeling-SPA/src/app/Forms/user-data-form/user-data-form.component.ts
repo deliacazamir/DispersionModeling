@@ -1,4 +1,6 @@
+import { StationTypeService } from './../../_services/station-type.service';
 import { Component, OnInit } from '@angular/core';
+// import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-user-data-form',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDataFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: StationTypeService) { }
 
   ngOnInit() {
+    this.service.refreshList();
   }
 
 }
