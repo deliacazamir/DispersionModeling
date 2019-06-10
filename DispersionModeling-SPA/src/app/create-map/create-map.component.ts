@@ -44,15 +44,15 @@ export class CreateMapComponent implements OnInit {
       form.resetForm();
     }
     this.service.formData = {
-      PollutantListID: 0,
+      Id: 0,
       Name: '',
       ChemicalFormula: '',
-      Measure: ''
-      // IsCarcinogenic: false,
-      // IsOrganic: false,
-      // SedimentationSpeed: 0,
-      // IsGasOrSolid: false,
-      // LegislativeValue: 0
+      Unit: '',
+      IsCarcinogenic: false,
+      OrganicType: '',
+      SedimentationSpeed: 0,
+      StateOfAggregation: '',
+      LegislativeValue: 0
     }
   }
 

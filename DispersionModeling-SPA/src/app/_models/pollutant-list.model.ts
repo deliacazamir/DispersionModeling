@@ -1,7 +1,12 @@
 export class PollutantList {
 
-    PollutantListID: number;
+    Id: number;
     Name: string;
     ChemicalFormula: string;
-    Measure: string;
+    Unit: string;
+    IsCarcinogenic: boolean;
+    SedimentationSpeed: number;
+    StateOfAggregation: string;
+    LegislativeValue: number;
+    OrganicType: string;
 }

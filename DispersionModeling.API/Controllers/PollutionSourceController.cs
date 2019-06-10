@@ -12,7 +12,7 @@ namespace DispersionModeling.API.Controllers
 
     public class PollutionSourceController : ControllerBase
     {
-         private readonly DataContext _context;
+        private readonly DataContext _context;
         public PollutionSourceController(DataContext context)
         {
             _context = context;

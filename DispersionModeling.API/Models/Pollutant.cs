@@ -14,7 +14,7 @@ namespace DispersionModeling.API.Models
         public bool IsCarcinogenic { get; set; }
         public string OrganicType { get; set; }
         public double SedimentationSpeed { get; set; }
-        public string AgregationState { get; set; }
+        public string  StateOfAggregation { get; set; }
         public double LegislativeValue { get; set; }
 
     }
