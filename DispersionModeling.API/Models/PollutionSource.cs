@@ -14,7 +14,6 @@ namespace DispersionModeling.API.Models
         public double Altitude { get; set; }
         public double ChimneyHeight { get; set; }
         public double ChimneyDiameter { get; set; }
-        public double MaxDistance { get; set; }
         public string TerrainType { get; set; }
 
     }

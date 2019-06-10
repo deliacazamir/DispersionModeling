@@ -1,4 +1,6 @@
+import { PollutionSourceService } from './../../_services/pollution-source.service';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-pollution-source-form',
@@ -7,9 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PollutionSourceFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: PollutionSourceService) { }
 
   ngOnInit() {
+    this.resetForm();
+  }
+
+  resetForm(form?: NgForm) {
+    if(form != null) {
+      form.resetForm();
+    }
+    this.service.formData = {
+      Id: 0,
+      Name: '',
+      Description: '',
+      Longitude: null,
+      Latitude: null,
+      Altitude: null,
+      ChimneyHeight: null,
+      ChimneyDiameter: null,
+      TerrainType: ''
+    }
+  }
+
+  onSubmit(form: NgForm) {
+    this.service.postForm(form.value).subscribe(
+      res => {
+        this.resetForm(form);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

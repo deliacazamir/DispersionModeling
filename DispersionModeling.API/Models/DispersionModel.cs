@@ -19,5 +19,7 @@ namespace DispersionModeling.API.Models
         public string WindDirection { get; set; }
         public double WindSpeedAtTenMetters { get; set; }
         
+        public double MaxDistance { get; set; }
+        
     }
 }

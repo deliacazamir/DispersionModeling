@@ -1,3 +1,31 @@
-<p>
-  dispersion-model-form works!
-</p>
+<div class="container" >
+  <div class="row justify-content-center">
+      <div class="col-md-8 mt-4">
+
+          <form class="text-center shadow p-3 mb-5 bg-white rounded">
+
+              <p class="h4 mb-4 text-center">Sign in</p>
+
+              <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+              <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+
+              <div class="d-flex justify-content-between">
+                  <div>
+                      <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                          <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                      </div>
+                  </div>
+                  <div>
+                      <a href="">Forgot password?</a>
+                  </div>
+              </div>
+
+              <!-- <button class="btn btn-success btn-block my-2 teal lighten-2" type="submit" (click)="nextForm2()">Next</button> -->
+              <button mdbBtn type="button" color="primary" rounded="true" class="rounded-pill" (click)="nextForm0()" mdbWavesEffect>Back</button>
+              <button type="button" class="btn btn-primary teal lighten-2 rounded-pill" (click)="nextForm2()">Next</button>
+          </form>
+      </div>
+  </div>
+</div>
