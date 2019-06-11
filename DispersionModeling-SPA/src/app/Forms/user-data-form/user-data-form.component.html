@@ -1,17 +1,23 @@
-<table class="table table-hover">
+
+
+<!-- Basic dropdown -->
+<a class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown" aria-haspopup="true"
+  aria-expanded="false">Power plant</a>
+
+<div class="dropdown-menu  force-scroll">
+  <a class="dropdown-item" *ngFor="let st of service.list" href="" >{{st.Name}}</a>
+</div>
+
+
+<select class="browser-default custom-select" (change)="selected()" [(ngModel)]="id">
+  <!-- <option selected [ngValue]="0">Power Plant</option> -->
+  <option *ngFor="let st of service.list" [ngValue]="st.Id">{{st.Name}}</option>
+</select>
+
+
+<!-- <table class="table table-hover">
   <tr *ngFor="let st of service.list">
     <td>{{st.Id}}</td>
     <td>{{st.Name}}</td>
   </tr>
-</table>
-
-<button class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown"
-  aria-haspopup="true" aria-expanded="true">Basic dropdown</button>
-
-<div class="dropdown-menu">
-  <a class="dropdown-item" href="#">Action</a>
-  <a class="dropdown-item" href="#">Another action</a>
-  <a class="dropdown-item" href="#">Something else here</a>
-  <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="#">Separated link</a>
-</div>
+</table> -->
