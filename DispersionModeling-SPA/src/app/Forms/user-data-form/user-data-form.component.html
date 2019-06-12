@@ -27,10 +27,15 @@
       <tr>
         <th>Pollutant Name</th>  
         <th>Chemical Formula</th>
+        <th>Pollutant Concentration</th>
     </tr>
     <tr *ngFor="let stp of service.stpList" > 
           <td>{{stp.Name}}</td>   
-          <td>{{stp.ChemicalFormula}}</td>   
+          <td>{{stp.ChemicalFormula}}</td>  
+          <td><div class="md-form">
+              <input mdbInput type="text" id="form1" class="form-control">
+              <label for="form1" class="">0.00 μg/m^3</label>
+            </div></td> 
     </tr>
   </table>
 </div>

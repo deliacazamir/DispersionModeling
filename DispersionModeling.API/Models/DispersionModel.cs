@@ -20,6 +20,7 @@ namespace DispersionModeling.API.Models
         public double WindSpeedAtTenMetters { get; set; }
         
         public double MaxDistance { get; set; }
+        public int PollutantID { get; set; }
         
     }
 }

@@ -4,93 +4,109 @@
   <div style="height:30px"> </div>
   <h2>Pollution Source Form</h2>
   <hr style="height:30px">
+
     <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-door-open"></i>
-                </div>
-            </div>
-            <input name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" class="form-control" placeholder="Pollutin Source Name" required>
-        </div>
+        
+            <div class="md-form">
+                    <input name="Name" #Name="ngModel" [(ngModel)]="service.formData.Name" mdbInput type="text" id="form1" class="form-control" required>
+                    <label for="form1" class="">Name</label>
+            </div> 
     </div>
+
     <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-hamsa"></i>
-                </div>
-            </div>
-            <input name="Description" #Description="ngModel" [(ngModel)]="service.formData.Description" class="form-control" placeholder="Description" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-hamsa"></i>
-                </div>
-            </div>
-            <input name="Longitude" #Longitude="ngModel" [(ngModel)]="service.formData.Longitude" class="form-control" placeholder="Longitude" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-door-open"></i>
-                </div>
-            </div>
-            <input name="Latitude" #Latitude="ngModel" [(ngModel)]="service.formData.Latitude" class="form-control" placeholder="Latitude" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-hamsa"></i>
-                </div>
-            </div>
-            <input name="Altitude" #Altitude="ngModel" [(ngModel)]="service.formData.Altitude" class="form-control" placeholder="Altitude" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-hamsa"></i>
-                </div>
-            </div>
-            <input name="ChimneyHeight" #ChimneyHeight="ngModel" [(ngModel)]="service.formData.ChimneyHeight" class="form-control" placeholder="ChimneyHeight" required>
+        <div class="md-form">
+                <input name="Description" #Description="ngModel" [(ngModel)]="service.formData.Description" mdbInput type="text" id="form1" class="form-control" required>
+                <label for="form1" class="">Description</label>
         </div>
     </div>
 
     <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-door-open"></i>
+            <!-- Material form grid -->
+        <form>
+            <!-- Grid row -->
+            <div class="row">
+            <!-- Grid column -->
+            <div class="col">
+                <!-- Material input -->
+                <div class="md-form">
+                        <input name="Longitude" #Longitude="ngModel" [(ngModel)]="service.formData.Longitude"  mdbInput type="text" id="form1" class="form-control" required>
+                        <label for="form1" class="">Longitude</label>
                 </div>
             </div>
-            <input name="ChimneyDiameter" #ChimneyDiameter="ngModel" [(ngModel)]="service.formData.ChimneyDiameter" class="form-control" placeholder="ChimneyDiameter" required>
-        </div>
+            <!-- Grid column -->
+        
+            <!-- Grid column -->
+            <div class="col">
+                <!-- Material input -->
+                <div class="md-form">
+                        <input name="Latitude" #Latitude="ngModel" [(ngModel)]="service.formData.Latitude"  mdbInput type="text" id="form1" class="form-control" required>
+                        <label for="form1" class="">Latitude</label>
+                </div>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col">
+                <!-- Material input -->
+                <div class="md-form">
+                        <input name="Altitude" #Altitude="ngModel" [(ngModel)]="service.formData.Altitude" mdbInput type="text" id="form1" class="form-control" required>
+                        <label for="form1" class="">Altitude </label>
+                </div>
+            </div>
+            <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </form>
+      <!-- Material form grid -->
     </div>
+
+
+
+
     <div class="form-group">
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <div class="input-group-text bg-white">
-                    <i class="fas fa-hamsa"></i>
+            <!-- Material form grid -->
+        <form>
+            <!-- Grid row -->
+            <div class="row">
+            <!-- Grid column -->
+            <div class="col">
+                <!-- Material input -->
+                <div class="md-form">
+                        <input name="ChimneyHeight" #ChimneyHeight="ngModel" [(ngModel)]="service.formData.ChimneyHeight" mdbInput type="text" id="form1" class="form-control" required>
+                        <label for="form1" class="">Chimney Height</label>
                 </div>
             </div>
-            <input name="TerrainType" #TerrainType="ngModel" [(ngModel)]="service.formData.TerrainType" class="form-control" placeholder="Terrain Type" required>
+            <!-- Grid column -->
+        
+            <!-- Grid column -->
+            <div class="col">
+                <!-- Material input -->
+                <div class="md-form">
+                        <input name="ChimneyDiameter" #ChimneyDiameter="ngModel" [(ngModel)]="service.formData.ChimneyDiameter" mdbInput type="text" id="form1" class="form-control" required>
+                        <label for="form1" class="">Chimney Diameter</label>
+                </div>
+            </div>
+            <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </form>
+      <!-- Material form grid -->
+    </div>
+
+    <div class="form-group">
+        <div class="md-form">
+                <input name="TerrainType" #TerrainType="ngModel" [(ngModel)]="service.formData.TerrainType" mdbInput type="text" id="form1" class="form-control" required>
+                <label for="form1" class="">Terrain Type</label>
         </div>
     </div>
+
+    <!-- <input name="TerrainType" #TerrainType="ngModel" [(ngModel)]="service.formData.TerrainType" class="form-control" placeholder="Terrain Type" required> -->
 
 
   <div class="form-group">
-
       <button class="btn btn-succes btn-lg btn-block teal lighten-2" type="submit" [disabled]="form.invalid"><i class="far fa-check-circle"></i>
               Submit
           </button>
   </div>
+
 </form>

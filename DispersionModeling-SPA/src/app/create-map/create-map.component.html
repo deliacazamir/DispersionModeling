@@ -1,44 +1,39 @@
 <body>
 
-    <!-- Horizontal Steppers -->
-    <div class="row">
-        <div class="col-md-12">
-
-            <!-- Stepers Wrapper -->
-            <ul class="stepper stepper-horizontal">
-
-                <!-- First Step -->
-                <li class="completed" >
-                    <a (click)="nextForm1()">
-                        <span class="circle">1</span>
-                        <span class="label">First step</span>
-                    </a>
-                </li>
-
-                <!-- Second Step -->
-                <li class="active">
-                    <a (click)="nextForm2()">
-                        <span class="circle">2</span>
-                        <span class="label">Second step</span>
-                    </a>
-                </li>
-
-                <!-- Third Step -->
-                <li class="active" >
-                    <a (click)="nextForm3()">
-                        <span class="circle">3</span>
-                        <span class="label">Third step</span>
-                    </a>
-                </li>
-
-            </ul>
-            <!-- /.Stepers Wrapper -->
-
-        </div>
-    </div>
-    <!-- /.Horizontal Steppers -->
-
      <div class="container" style="width:60%">
+
+           <!-- Horizontal Steppers -->
+    <div class="row">
+            <div class="col-md-12">
+    
+                <!-- Stepers Wrapper -->
+                <ul class="stepper stepper-horizontal">
+    
+                    <li class="completed " >
+                        <a (click)="nextForm1()">
+                            <span class="circle">1</span>
+                            <span class="label ">First step</span>
+                        </a>
+                    </li>
+    
+                    <li class="active">
+                        <a (click)="nextForm2()">
+                            <span class="circle">2</span>
+                            <span class="label">Second step</span>
+                        </a>
+                    </li>
+    
+                    <li class="active" >
+                        <a (click)="nextForm3()">
+                            <span class="circle">3</span>
+                            <span class="label">Third step</span>
+                        </a>
+                    </li>
+    
+                </ul>
+            </div>
+        </div>
+        
         <div *ngIf="var1"> <app-user-data-form></app-user-data-form> </div>    
         <div *ngIf="var2"> <app-dispersion-model-form></app-dispersion-model-form> </div>
         <div *ngIf="var3"> <app-pollution-source-form></app-pollution-source-form> </div> 

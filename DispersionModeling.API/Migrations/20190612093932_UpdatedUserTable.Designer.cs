@@ -4,14 +4,16 @@ using DispersionModeling.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DispersionModeling.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190612093932_UpdatedUserTable")]
+    partial class UpdatedUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,8 +40,6 @@ namespace DispersionModeling.API.Migrations
                     b.Property<double>("ExitTemperature");
 
                     b.Property<double>("MaxDistance");
-
-                    b.Property<int>("PollutantID");
 
                     b.Property<double>("SmokeExitSpeed");
 
@@ -191,19 +191,6 @@ namespace DispersionModeling.API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DispersionModeling.API.Models.UserDispersionModel", b =>
-                {
-                    b.Property<int>("UserID");
-
-                    b.Property<int>("DispersionModelID");
-
-                    b.HasKey("UserID", "DispersionModelID");
-
-                    b.HasIndex("DispersionModelID");
-
-                    b.ToTable("UserDispersionModels");
-                });
-
             modelBuilder.Entity("DispersionModeling.API.Models.StationTypePollutant", b =>
                 {
                     b.HasOne("DispersionModeling.API.Models.Pollutant", "Pollutant")
@@ -214,19 +201,6 @@ namespace DispersionModeling.API.Migrations
                     b.HasOne("DispersionModeling.API.Models.StationType", "StationType")
                         .WithMany()
                         .HasForeignKey("StationTypeID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("DispersionModeling.API.Models.UserDispersionModel", b =>
-                {
-                    b.HasOne("DispersionModeling.API.Models.DispersionModel", "DispersionModel")
-                        .WithMany()
-                        .HasForeignKey("DispersionModelID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("DispersionModeling.API.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
