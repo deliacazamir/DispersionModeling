@@ -4,14 +4,16 @@ using DispersionModeling.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DispersionModeling.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190611121331_STPs")]
+    partial class STPs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -142,6 +144,21 @@ namespace DispersionModeling.API.Migrations
                     b.ToTable("PollutionSources");
                 });
 
+            modelBuilder.Entity("DispersionModeling.API.Models.STP", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PollutantID");
+
+                    b.Property<int>("StationTypeID");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("STPs");
+                });
+
             modelBuilder.Entity("DispersionModeling.API.Models.StationType", b =>
                 {
                     b.Property<int>("Id")
@@ -165,7 +182,7 @@ namespace DispersionModeling.API.Migrations
 
                     b.HasIndex("StationTypeID");
 
-                    b.ToTable("StationTypePollutants");
+                    b.ToTable("StationTypePollutant");
                 });
 
             modelBuilder.Entity("DispersionModeling.API.Models.User", b =>

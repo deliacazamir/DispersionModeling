@@ -17,5 +17,7 @@ namespace DispersionModeling.API.Models
         public string  StateOfAggregation { get; set; }
         public double LegislativeValue { get; set; }
 
+        //public List<StationType> StationTypes { get; set; }
+
     }
 }

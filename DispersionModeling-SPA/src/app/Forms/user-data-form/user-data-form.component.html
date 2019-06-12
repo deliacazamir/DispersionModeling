@@ -1,13 +1,10 @@
 
 
-<!-- Basic dropdown -->
-<a class="btn btn-primary dropdown-toggle mr-4" type="button" data-toggle="dropdown" aria-haspopup="true"
-  aria-expanded="false">Power plant</a>
-
-<div class="dropdown-menu  force-scroll">
-  <a class="dropdown-item" *ngFor="let st of service.list" href="" >{{st.Name}}</a>
+<div>
+  <h4>Please choose Power Plant Type: </h4>
 </div>
 
+<div style="height:30px"> </div>
 
 <select class="browser-default custom-select" (change)="selected()" [(ngModel)]="id">
   <!-- <option selected [ngValue]="0">Power Plant</option> -->
@@ -21,3 +18,43 @@
     <td>{{st.Name}}</td>
   </tr>
 </table> -->
+
+<div style="height:80px"> </div>
+
+<div *ngIf="shifter">
+  <table class="table table-hover">
+    <title>STP</title>
+      <tr>
+        <th>Pollutant Name</th>  
+        <th>Chemical Formula</th>
+    </tr>
+    <tr *ngFor="let stp of service.stpList" > 
+          <td>{{stp.Name}}</td>   
+          <td>{{stp.ChemicalFormula}}</td>   
+    </tr>
+  </table>
+</div>
+
+<!-- <div style="height:80px"> </div>
+
+<div *ngIf="helpVar">
+  <table class="table table-hover">
+    <title>STP</title>
+      <tr>
+        <th>StationTypeID</th>  
+        <th>PollutantID</th>
+    </tr>
+    <tr *ngFor="let stp of service.pollutantList" > 
+          <td>{{stp.Id}}</td>
+          <td>{{stp.Name}}</td>
+          <td>{{stp.ChemicalFormula}}</td>
+          <td>{{stp.Unit}}</td>
+          <td>{{stp.IsCarcinogenic}}</td>
+          <td>{{stp.SedimentationSpeed}}</td>
+          <td>{{stp.StateOfAggregation}}</td>
+          <td>{{stp.LegislativeValue}}</td>
+          <td>{{stp.OrganicType}}</td>
+
+    </tr>
+  </table>
+</div> -->

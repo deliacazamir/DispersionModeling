@@ -9,5 +9,7 @@ namespace DispersionModeling.API.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
+       // public List<Pollutant> Pollutants { get; set; }
+
     }
 }

@@ -23,16 +23,16 @@ namespace DispersionModeling.API.Controllers
             return await _context.Pollutants.ToListAsync();
         }
 
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Pollutant>> GetPollutant (int id)
         {
-            var pollutantList = await _context.Pollutants.FindAsync();
+            var pollutantList = await _context.Pollutants.FindAsync(id);
 
             if( pollutantList == null)
             {
                 return NotFound();
             }
-
             return pollutantList;
         }
 
@@ -60,18 +60,6 @@ namespace DispersionModeling.API.Controllers
             
         }
 
-           /* Update
-        [HttpPut("{id}")]
-        public async Task<ActionResult<PollutantList>> PutPollutantList (int id,[FromBody]PollutantList pollutantList)
-        {
-            _context.Update(pollutantList);
-            
-            await _context.SaveChangesAsync();
-            
-            return CreatedAtAction("GetPollutantList", new { id = pollutantList.PollutantListID}, pollutantList);
-            
-        }
-        */
-
+         
     }
 }

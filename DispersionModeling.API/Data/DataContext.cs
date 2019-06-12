@@ -14,6 +14,13 @@ namespace DispersionModeling.API.Data
         public DbSet<DispersionModel> DispersionModels { get; set;}
         public DbSet<StationType> StationTypes { get; set; }
         public DbSet<Pollutant> Pollutants { get; set; }
+        public DbSet<StationTypePollutant> StationTypePollutants { get; set; }
+      
+        protected override void OnModelCreating(ModelBuilder modelBuilder)    
+        {                                                 
+            modelBuilder.Entity<StationTypePollutant>()             
+                .HasKey(x => new {x.PollutantID, x.StationTypeID});
+        }  
 
     }
 }

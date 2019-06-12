@@ -1,5 +1,7 @@
+import { PollutantListService } from './../../_services/pollutant-list.service';
 import { StationTypeService } from './../../_services/station-type.service';
 import { Component, OnInit } from '@angular/core';
+import { isSyntheticPropertyOrListener } from '@angular/compiler/src/render3/util';
 
 
 @Component({
@@ -12,7 +14,8 @@ export class UserDataFormComponent implements OnInit {
 
   constructor(public service: StationTypeService) { }
 
-  id:number;
+  shifter: boolean = false;
+  id: number;
   
   ngOnInit() {
 
@@ -21,6 +24,9 @@ export class UserDataFormComponent implements OnInit {
 
   selected(){
     console.log(this.id)
+    this.shifter = true;
+    this.service.refreshListStp(this.id);
   }
+
 
 }
