@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { STP } from '../_models/stp.model';
 import { PollutantList } from '../_models/pollutant-list.model';
+import { Dispersion } from '../_models/dispersion.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,15 @@ export class StationTypeService {
   formData: PollutantList;
   pollutantList: PollutantList[];
 
+  formDispersionData: Dispersion;
+
   readonly rootURL = 'http://localhost:5000/api/';
 
   constructor(private http: HttpClient) { }
+
+  postDispersionForm(formDispersionData: Dispersion) {
+    return this.http.post( this.rootURL + 'dispersion', formDispersionData);
+  }
 
   postForm(stationData: StationType) {
     return this.http.post( this.rootURL + 'StationType', stationData);
@@ -40,6 +47,8 @@ export class StationTypeService {
     .toPromise()
     .then(res => this.stpList = res as STP[]);
   }
+
+ 
 
   // refreshPollutantList() {
   //   this.http.get( this.rootURL + 'pollutant')

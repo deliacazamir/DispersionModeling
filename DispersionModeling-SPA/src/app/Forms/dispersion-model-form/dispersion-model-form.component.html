@@ -1,9 +1,12 @@
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" >
-        <input type="hidden" name="Id" [value]="service.formData.Id">
+        <input type="hidden" name="Id" [value]="service.formDispersionData.Id">
         <div class="steptwo"></div>
         <div style="height:30px"> </div>
         <h2>Dispersion Form</h2>
         <hr style="height:30px">
+
+        
+
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-prepend">
@@ -11,7 +14,7 @@
                           <i class="fas fa-door-open"></i>
                       </div>
                   </div>
-                  <input name="SmokeExitSpeed" #SmokeExitSpeed="ngModel" [(ngModel)]="service.formData.SmokeExitSpeed" class="form-control" placeholder="SmokeExitSpeed" required>
+                  <input name="SmokeExitSpeed" #SmokeExitSpeed="ngModel" [(ngModel)]="service.formDispersionData.SmokeExitSpeed" class="form-control" placeholder="SmokeExitSpeed" required>
               </div>
           </div>
           <div class="form-group">
@@ -21,47 +24,7 @@
                           <i class="fas fa-hamsa"></i>
                       </div>
                   </div>
-                  <input name="ExitTemperature" #ExitTemperature="ngModel" [(ngModel)]="service.formData.ExitTemperature" class="form-control" placeholder="ExitTemperature" required>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-hamsa"></i>
-                      </div>
-                  </div>
-                  <input name="EmissionOfPollutantsConcentration" #EmissionOfPollutantsConcentration="ngModel" [(ngModel)]="service.formData.EmissionOfPollutantsConcentration" class="form-control" placeholder="EmissionOfPollutantsConcentration" required>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-door-open"></i>
-                      </div>
-                  </div>
-                  <input name="CurrentDate" #CurrentDate="ngModel" [(ngModel)]="service.formData.CurrentDate" class="form-control" placeholder="CurrentDate" required>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-hamsa"></i>
-                      </div>
-                  </div>
-                  <input name="CloudCoverage" #CloudCoverage="ngModel" [(ngModel)]="service.formData.CloudCoverage" class="form-control" placeholder="CloudCoverage" required>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-hamsa"></i>
-                      </div>
-                  </div>
-                  <input name="AtmosphericConditions" #AtmosphericConditions="ngModel" [(ngModel)]="service.formData.AtmosphericConditions" class="form-control" placeholder="AtmosphericConditions" required>
+                  <input name="ExitTemperature" #ExitTemperature="ngModel" [(ngModel)]="service.formDispersionData.ExitTemperature" class="form-control" placeholder="ExitTemperature" required>
               </div>
           </div>
       
@@ -72,7 +35,7 @@
                           <i class="fas fa-door-open"></i>
                       </div>
                   </div>
-                  <input name="AirTemperature" #AirTemperature="ngModel" [(ngModel)]="service.formData.AirTemperature" class="form-control" placeholder="AirTemperature" required>
+                  <input name="CurrentDate" #CurrentDate="ngModel" [(ngModel)]="service.formDispersionData.CurrentDate" class="form-control" placeholder="CurrentDate" required>
               </div>
           </div>
           <div class="form-group">
@@ -82,7 +45,38 @@
                           <i class="fas fa-hamsa"></i>
                       </div>
                   </div>
-                  <input name="SolarRadiations" #SolarRadiations="ngModel" [(ngModel)]="service.formData.SolarRadiations" class="form-control" placeholder="SolarRadiations" required>
+                  <input name="CloudCoverage" #CloudCoverage="ngModel" [(ngModel)]="service.formDispersionData.CloudCoverage" class="form-control" placeholder="CloudCoverage" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                          <i class="fas fa-hamsa"></i>
+                      </div>
+                  </div>
+                  <input name="AtmosphericConditions" #AtmosphericConditions="ngModel" [(ngModel)]="service.formDispersionData.AtmosphericConditions" class="form-control" placeholder="AtmosphericConditions" required>
+              </div>
+          </div>
+      
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                          <i class="fas fa-door-open"></i>
+                      </div>
+                  </div>
+                  <input name="AirTemperature" #AirTemperature="ngModel" [(ngModel)]="service.formDispersionData.AirTemperature" class="form-control" placeholder="AirTemperature" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                          <i class="fas fa-hamsa"></i>
+                      </div>
+                  </div>
+                  <input name="SolarRadiations" #SolarRadiations="ngModel" [(ngModel)]="service.formDispersionData.SolarRadiations" class="form-control" placeholder="SolarRadiations" required>
               </div>
           </div>
           <div class="form-group">
@@ -92,7 +86,7 @@
                             <i class="fas fa-hamsa"></i>
                         </div>
                     </div>
-                    <input name="WindDirection" #WindDirection="ngModel" [(ngModel)]="service.formData.WindDirection" class="form-control" placeholder="WindDirection" required>
+                    <input name="WindDirection" #WindDirection="ngModel" [(ngModel)]="service.formDispersionData.WindDirection" class="form-control" placeholder="WindDirection" required>
                 </div>
             </div>
         
@@ -103,7 +97,7 @@
                             <i class="fas fa-door-open"></i>
                         </div>
                     </div>
-                    <input name="WindSpeedAtTenMetters" #WindSpeedAtTenMetters="ngModel" [(ngModel)]="service.formData.WindSpeedAtTenMetters" class="form-control" placeholder="WindSpeedAtTenMetters" required>
+                    <input name="WindSpeedAtTenMetters" #WindSpeedAtTenMetters="ngModel" [(ngModel)]="service.formDispersionData.WindSpeedAtTenMetters" class="form-control" placeholder="WindSpeedAtTenMetters" required>
                 </div>
             </div>
             <div class="form-group">
@@ -113,7 +107,7 @@
                             <i class="fas fa-hamsa"></i>
                         </div>
                     </div>
-                    <input name="MaxDistance" #MaxDistance="ngModel" [(ngModel)]="service.formData.MaxDistance" class="form-control" placeholder="MaxDistance" required>
+                    <input name="MaxDistance" #MaxDistance="ngModel" [(ngModel)]="service.formDispersionData.MaxDistance" class="form-control" placeholder="MaxDistance" required>
                 </div>
             </div>
       
@@ -124,4 +118,5 @@
                     Submit
                 </button>
         </div>
+
       </form>

@@ -6,12 +6,12 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DispersionService {
-  formData: Dispersion;
+  formDispersionData: Dispersion;
   readonly rootURL = 'http://localhost:5000/api/';
 
   constructor(private http: HttpClient) { }
 
-  postForm(formData: Dispersion) {
-    return this.http.post( this.rootURL + 'dispersion', formData);
+  postDispersionForm(formDispersionData: Dispersion) {
+    return this.http.post( this.rootURL + 'dispersion', formDispersionData);
   }
 }

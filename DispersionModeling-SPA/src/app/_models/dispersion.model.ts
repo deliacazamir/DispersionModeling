@@ -12,4 +12,5 @@ export class Dispersion {
     WindDirection: string;
     WindSpeedAtTenMetters: number;
     MaxDistance: number;
+    PollutantID: number;
 }

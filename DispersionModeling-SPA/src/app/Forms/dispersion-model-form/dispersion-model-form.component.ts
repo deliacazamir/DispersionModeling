@@ -1,3 +1,4 @@
+import { StationTypeService } from './../../_services/station-type.service';
 import { ToastrService } from 'ngx-toastr';
 import { DispersionService } from './../../_services/dispersion.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,7 @@ import { formatDate } from '@angular/common';
 })
 export class DispersionModelFormComponent implements OnInit {
 
-  constructor(public service: DispersionService, private toastr: ToastrService) { }
+  constructor(public service: StationTypeService, private toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -21,7 +22,7 @@ export class DispersionModelFormComponent implements OnInit {
     if(form != null) {
       form.resetForm();
     }
-    this.service.formData = {
+    this.service.formDispersionData = {
       Id: 0,
       SmokeExitSpeed: null,
       ExitTemperature: null,
@@ -38,7 +39,7 @@ export class DispersionModelFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.service.postForm(form.value).subscribe(
+    this.service.postDispersionForm(form.value).subscribe(
       res => {
         this.resetForm(form);
         this.toastr.success('Submitted Successfully', 'Dispersion Model');

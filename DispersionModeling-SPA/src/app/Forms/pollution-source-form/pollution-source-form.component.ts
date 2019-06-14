@@ -37,7 +37,7 @@ export class PollutionSourceFormComponent implements OnInit {
     this.service.postForm(form.value).subscribe(
       res => {
         this.resetForm(form);
-        this.toastr.success('Submitted Successfully', 'Dispersion Model');
+        this.toastr.success('Submitted Successfully', 'Power Plant Info');
       },
       err => {
         console.log(err);

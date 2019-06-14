@@ -9,10 +9,11 @@
                 <!-- Stepers Wrapper -->
                 <ul class="stepper stepper-horizontal">
     
-                    <li class="completed " >
+                    <li class="completed" >
                         <a (click)="nextForm1()">
                             <span class="circle">1</span>
                             <span class="label ">First step</span>
+                            <!-- <span *ngIf="var1"> you are here</span> -->
                         </a>
                     </li>
     
@@ -33,10 +34,13 @@
                 </ul>
             </div>
         </div>
-        
+
         <div *ngIf="var1"> <app-user-data-form></app-user-data-form> </div>    
         <div *ngIf="var2"> <app-dispersion-model-form></app-dispersion-model-form> </div>
         <div *ngIf="var3"> <app-pollution-source-form></app-pollution-source-form> </div> 
+
+
+        
     </div>
 
     

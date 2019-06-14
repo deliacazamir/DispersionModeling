@@ -1,5 +1,3 @@
-
-
 <div>
   <h4>Please choose Power Plant Type: </h4>
 </div>
@@ -11,15 +9,213 @@
   <option *ngFor="let st of service.list" [ngValue]="st.Id">{{st.Name}}</option>
 </select>
 
+<div style="height:30px"> </div>
 
-<!-- <table class="table table-hover">
-  <tr *ngFor="let st of service.list">
-    <td>{{st.Id}}</td>
-    <td>{{st.Name}}</td>
-  </tr>
-</table> -->
+<div>
+  <h4>Please choose Pollutant to calculate dispersion: </h4>
+</div>
 
-<div style="height:80px"> </div>
+<div style="height:30px"> </div>
+
+<select class="browser-default custom-select" (change)="selected()" [(ngModel)]="idPollutant">
+  <!-- <option selected [ngValue]="0">Power Plant</option> -->
+  <option *ngFor="let stp of service.stpList" [ngValue]="stp.Id">{{stp.Name}}</option>
+</select>
+
+
+<form #form="ngForm"  (submit)="onSubmit(form)" >
+  <input type="hidden" name="Id" [value]="service.formDispersionData.Id">
+  <!-- <input type="hidden" name="PollutantID" #PollutantID="ngModel" [(ngModel)]="service.formDispersionData.PollutantID"> -->
+
+  <div class="steptwo"></div>
+  <div style="height:30px"> </div>
+  <h2>Dispersion Form</h2>
+  <hr style="height:30px">
+
+  
+  
+  <!-- <div class="form-group">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+                <i class="fas fa-door-open"></i>
+            </div>
+        </div>
+        <input name="PollutantID" #PollutantID="ngModel" [(ngModel)]="service.formDispersionData.PollutantID" class="form-control" value ="{{idPollutant}}" required>
+    </div>
+</div> -->
+
+<div class="form-group">
+  <div class="md-form">
+    <input name="PollutantID" #PollutantID="ngModel" [(ngModel)]="service.formDispersionData.PollutantID" value ="{{idPollutant}}" mdbInput type="text" id="form1" class="form-control" required>
+    <label for="form1" class="">Id, care ar trebuie sa se completeze automat</label>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="md-form">
+    <input name="EmissionOfPollutantsConcentration" #EmissionOfPollutantsConcentration="ngModel" [(ngModel)]="service.formDispersionData.EmissionOfPollutantsConcentration" mdbInput type="text" id="form1" class="form-control" >
+    <label for="form1" class="">Pollutant Concentration</label>
+  </div>
+</div>
+
+
+    <div class="form-group">
+      <!-- Material form grid -->
+  
+      <!-- Grid row -->
+      <div class="row">
+      <!-- Grid column -->
+      <div class="col">
+          <!-- Material input -->
+          <div class="md-form">
+                  <input name="SmokeExitSpeed" #SmokeExitSpeed="ngModel" [(ngModel)]="service.formDispersionData.SmokeExitSpeed" mdbInput type="text" id="form1" class="form-control" >
+                  <label for="form1" class="">Smoke Exit Speed</label>
+          </div>
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="col">
+          <!-- Material input -->
+          <div class="md-form">
+                  <input name="ExitTemperature" #ExitTemperature="ngModel" [(ngModel)]="service.formDispersionData.ExitTemperature"  mdbInput type="text" id="form1" class="form-control" >
+                  <label for="form1" class="">Exit Temperature</label>
+          </div>
+      </div>
+      <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+  
+<!-- Material form grid -->
+</div>
+
+
+
+<div class="form-group">
+  <!-- Material form grid -->
+
+  <!-- Grid row -->
+  <div class="row">
+  <!-- Grid column -->
+  <div class="col">
+      <!-- Material input -->
+      <div class="md-form">
+              <input name="CurrentDate" #CurrentDate="ngModel" [(ngModel)]="service.formDispersionData.CurrentDate" mdbInput type="text" id="form1" class="form-control" >
+              <label for="form1" class="">Current Date</label>
+      </div>
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="col">
+      <!-- Material input -->
+      <div class="md-form">
+              <input name="AirTemperature" #AirTemperature="ngModel" [(ngModel)]="service.formDispersionData.AirTemperature"  mdbInput type="text" id="form1" class="form-control" >
+              <label for="form1" class="">Air Temperature</label>
+      </div>
+  </div>
+  <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+
+<!-- Material form grid -->
+</div>
+
+
+
+    <div class="form-group">
+      <!-- Material form grid -->
+  
+      <!-- Grid row -->
+      <div class="row">
+      <!-- Grid column -->
+      <div class="col">
+          <!-- Material input -->
+          <div class="md-form">
+                  <input name="CloudCoverage" #CloudCoverage="ngModel" [(ngModel)]="service.formDispersionData.CloudCoverage"  mdbInput type="text" id="form1" class="form-control" >
+                  <label for="form1" class="">Cloud Coverage</label>
+          </div>
+      </div>
+      <!-- Grid column -->
+  
+      <!-- Grid column -->
+      <div class="col">
+          <!-- Material input -->
+          <div class="md-form">
+                  <input name="AtmosphericConditions" #AtmosphericConditions="ngModel" [(ngModel)]="service.formDispersionData.AtmosphericConditions"  mdbInput type="text" id="form1" class="form-control" >
+                  <label for="form1" class="">Atmospheric Conditions</label>
+          </div>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col">
+          <!-- Material input -->
+          <div class="md-form">
+                  <input name="SolarRadiations" #SolarRadiations="ngModel" [(ngModel)]="service.formDispersionData.SolarRadiations" mdbInput type="text" id="form1" class="form-control" >
+                  <label for="form1" class="">Solar Radiations </label>
+          </div>
+      </div>
+      <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+  
+<!-- Material form grid -->
+</div>
+
+
+      <div class="form-group">
+        <!-- Material form grid -->
+      
+        <!-- Grid row -->
+        <div class="row">
+        <!-- Grid column -->
+        <div class="col">
+            <!-- Material input -->
+            <div class="md-form">
+                    <input name="WindDirection" #WindDirection="ngModel" [(ngModel)]="service.formDispersionData.WindDirection" mdbInput type="text" id="form1" class="form-control" >
+                    <label for="form1" class="">Current Date</label>
+            </div>
+        </div>
+        <!-- Grid column -->
+      
+        <!-- Grid column -->
+        <div class="col">
+            <!-- Material input -->
+            <div class="md-form">
+                    <input name="WindSpeedAtTenMetters" #WindSpeedAtTenMetters="ngModel" [(ngModel)]="service.formDispersionData.WindSpeedAtTenMetters"  mdbInput type="text" id="form1" class="form-control" >
+                    <label for="form1" class="">Air Temperature</label>
+            </div>
+        </div>
+        <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      
+      <!-- Material form grid -->
+      </div>
+
+
+      <div class="form-group">
+        <div class="md-form">
+                <input name="MaxDistance" #MaxDistance="ngModel" [(ngModel)]="service.formDispersionData.MaxDistance" mdbInput type="text" id="form1" class="form-control" >
+                <label for="form1" class="">Terrain Type</label>
+        </div>
+    </div>
+
+
+  <div class="form-group">
+
+      <button class="btn btn-succes btn-lg btn-block teal lighten-2" type="submit" [disabled]="form.invalid"><i class="far fa-check-circle"></i>
+              Submit
+          </button>
+  </div>
+
+</form>
+
+
+
+<!-- <div style="height:80px"> </div>
 
 <div *ngIf="shifter">
   <table class="table table-hover">
@@ -27,18 +223,16 @@
       <tr>
         <th>Pollutant Name</th>  
         <th>Chemical Formula</th>
-        <th>Pollutant Concentration</th>
     </tr>
     <tr *ngFor="let stp of service.stpList" > 
           <td>{{stp.Name}}</td>   
           <td>{{stp.ChemicalFormula}}</td>  
-          <td><div class="md-form">
-              <input mdbInput type="text" id="form1" class="form-control">
-              <label for="form1" class="">0.00 μg/m^3</label>
-            </div></td> 
     </tr>
   </table>
-</div>
+</div> -->
+
+
+
 
 <!-- <div style="height:80px"> </div>
 
