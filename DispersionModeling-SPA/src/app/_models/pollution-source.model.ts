@@ -9,4 +9,5 @@ export class PollutionSource {
     ChimneyHeight: number;
     ChimneyDiameter: number;
     TerrainType: string;
+    UserID: number;
 }

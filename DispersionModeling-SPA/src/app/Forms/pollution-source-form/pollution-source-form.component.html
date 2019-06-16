@@ -2,7 +2,7 @@
   <input type="hidden" name="Id" [value]="service.formData.Id">
   <div class="steptwo"></div>
   <div style="height:30px"> </div>
-  <h2>Pollution Source Form</h2>
+  <h2>Pollution Source Form For:  {{authService.decodedToken.unique_name}}  </h2>
   <hr style="height:30px">
 
     <div class="form-group">
@@ -107,3 +107,19 @@
   </div>
 
 </form>
+
+<div style="height:80px"> </div>
+
+
+  <table class="table table-hover">
+    <title>STP</title>
+      <tr>
+        <th>StationTypeID</th>  
+        <th>PollutantID</th>
+    </tr>
+    <tr *ngFor="let stp of service.pollutionSource" > 
+          <td>{{stp.Description}}</td>
+          <td>{{stp.Name}}</td>
+
+    </tr>
+  </table>

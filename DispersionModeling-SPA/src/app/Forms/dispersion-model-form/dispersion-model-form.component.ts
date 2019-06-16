@@ -34,8 +34,8 @@ export class DispersionModelFormComponent implements OnInit {
       SolarRadiations: null,
       WindDirection: '',
       WindSpeedAtTenMetters: null,
-      MaxDistance: null
-    }
+      MaxDistance: null,
+      PollutantID: null }
   }
 
   onSubmit(form: NgForm) {

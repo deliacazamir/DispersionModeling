@@ -24,19 +24,6 @@ namespace DispersionModeling.API.Controllers
             return await _context.PollutionSources.ToListAsync();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<PollutionSource>> GetPollutionSource (int id)
-        {
-            var pollutionSource = await _context.PollutionSources.FindAsync();
-
-            if( pollutionSource == null)
-            {
-                return NotFound();
-            }
-
-            return pollutionSource;
-        }
-
         //Insert
         [HttpPost]
         public async Task<ActionResult<PollutionSource>> PostPollutionSource (PollutionSource pollutionSource)
@@ -46,6 +33,18 @@ namespace DispersionModeling.API.Controllers
 
             return CreatedAtAction("GetPollutionSource", new { id = pollutionSource.Id}, pollutionSource);
             
+        }
+
+        [HttpGet("{id}")]
+         public async Task<ActionResult<IEnumerable<PollutionSource>>> GetPollutionSource (int id) 
+         {
+            var pollutionSource = await _context.PollutionSources.FromSql("select * from PollutionSources where UserID ="+id).ToListAsync();
+            if(pollutionSource == null)
+            {
+                 return NotFound();
+            }
+            
+            return pollutionSource;
         }
     }
 }

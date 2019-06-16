@@ -1,3 +1,4 @@
+import { PollutionSourceService } from './_services/pollution-source.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
@@ -46,7 +47,8 @@ import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
       AuthService,
       CreateMapService,
       AuthGuard,
-      PollutantListService
+      PollutantListService,
+      PollutionSourceService
    ],
    bootstrap: [
       AppComponent

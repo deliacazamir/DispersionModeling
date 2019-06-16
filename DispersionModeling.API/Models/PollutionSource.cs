@@ -16,5 +16,8 @@ namespace DispersionModeling.API.Models
         public double ChimneyDiameter { get; set; }
         public string TerrainType { get; set; }
 
+        public int UserID { get; set; }
+        public User User { get; set; }
+
     }
 }

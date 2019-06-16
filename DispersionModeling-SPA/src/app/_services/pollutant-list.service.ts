@@ -22,4 +22,6 @@ export class PollutantListService {
     .toPromise()
     .then(res => this.pollutantList = res as PollutantList[]);
   }
+
+  
 }
