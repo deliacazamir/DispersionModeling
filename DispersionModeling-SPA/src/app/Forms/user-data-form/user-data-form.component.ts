@@ -1,7 +1,5 @@
-import { PollutantListService } from './../../_services/pollutant-list.service';
 import { StationTypeService } from './../../_services/station-type.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { isSyntheticPropertyOrListener } from '@angular/compiler/src/render3/util';
 import { NgForm, FormControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 
@@ -23,12 +21,11 @@ export class UserDataFormComponent implements OnInit {
 
   ngOnInit() {
     this.service.refreshList();
-    this.resetForm();
-    
+    this.resetForm();    
   }
+
   
-  
-  selected(){
+  selected() {
     this.shifter = true;
     this.service.refreshListStp(this.id);
     this.service.formDispersionData.PollutantID = this.idPollutant;
@@ -61,8 +58,6 @@ export class UserDataFormComponent implements OnInit {
     this.service.postDispersionForm(form.value).subscribe(
       res => {
         this.resetForm(form);
-        console.log("ID Pollutant:",this.service.formDispersionData.PollutantID);
-        console.log("ID Pollutant Form:"+this.idPollutant);
         this.toastr.success('Submitted Successfully', 'Dispersion Model');
       },
       err => {

@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DispersionModeling.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class GPSLocationController : ControllerBase
@@ -28,16 +27,5 @@ namespace DispersionModeling.API.Controllers
             return Ok(values);
         }
 
-        [AllowAnonymous]
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetGPSLocation(int id)
-        {
-            var value = await _context.GPSLocations.FirstOrDefaultAsync(x => x.Id == id);
-            return Ok(value);
-        }
-
-        // [HttpPost]
-        // [HttpPut]
-        // [HttpDelete]
     }
 }

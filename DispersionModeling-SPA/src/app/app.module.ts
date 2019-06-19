@@ -1,7 +1,7 @@
 import { PollutionSourceService } from './_services/pollution-source.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule ,GoogleMapsAPIWrapper } from '@agm/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,7 +21,7 @@ import { PollutionSourceFormComponent } from './Forms/pollution-source-form/poll
 import { DispersionModelFormComponent } from './Forms/dispersion-model-form/dispersion-model-form.component';
 import { UserDataFormComponent } from './Forms/user-data-form/user-data-form.component';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
-
+import { NgxHeatMapModule } from 'ngx-heatmap';
 
 @NgModule({
    declarations: [
@@ -37,10 +37,11 @@ import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
-      AgmCoreModule.forRoot({apiKey: 'Insert key here'}),
       MDBBootstrapModule.forRoot(),
       BrowserAnimationsModule,
       ToastrModule.forRoot(),
+      AgmCoreModule.forRoot({ apiKey:'AIzaSyCJyKlVTHuJ4mmdXWWtEaRqAt62HQ5NYzY',libraries:['visualization','places', 'drawing', 'geometry']}),
+      NgxHeatMapModule
    ],
  
    providers: [
@@ -48,7 +49,8 @@ import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
       CreateMapService,
       AuthGuard,
       PollutantListService,
-      PollutionSourceService
+      PollutionSourceService,
+      GoogleMapsAPIWrapper
    ],
    bootstrap: [
       AppComponent

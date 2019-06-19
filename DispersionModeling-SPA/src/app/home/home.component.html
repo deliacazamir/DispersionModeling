@@ -1,6 +1,42 @@
+
 <span class="border border-light">
-<agm-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)">
+<agm-map [zoom]="zoom" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" (mapReady)="onMapLoad($event)">
     <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen">
     </agm-marker>
 </agm-map>
+
+<div style="height:30px"> </div>
+
+<div class="btn-group">
+        <button type="button" class="btn btn-default text-light">Please choose pollutant to see dispersion</button>
+        <button type="button" class="btn btn-default dropdown-toggle dropdown-toggle-split text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu" >
+          <a class="dropdown-item" *ngFor="let stp of service.pollutantList" >{{stp.Name}}</a>
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+       
+        </div>
+</div>
+
+
+<!--
+<ngx-heatmap [height]="height"
+[width]="width"
+[maxDataPoints]="500"
+[minDataPoints]="500"
+[heatPoints]="data">
+</ngx-heatmap>
+
 </span>
+
+<h1>AICI a fost odata ca niciodata google maps.  
+</h1>
+
+<button (click)="onGenerateRandomDataClick()">Generate</button>
+Height: <input type="text" [(ngModel)]="height" [ngModelOptions]="{standAlone: true}"><br>
+Width: <input type="text" [(ngModel)]="width" [ngModelOptions]="{standAlone: true}"><br>
+
+-->

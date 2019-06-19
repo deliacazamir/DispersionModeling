@@ -19,7 +19,7 @@ export class PollutionSourceService {
   }
 
   getUserInfo(id:number) {
-    this.http.get( this.rootURL + 'pollutionsource/'+id)
+    this.http.get( this.rootURL + 'pollutionsource/'+ id)
     .toPromise()
     .then(res => this.pollutionSource = res as PollutionSource);
   }

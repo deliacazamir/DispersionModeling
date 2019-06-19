@@ -43,6 +43,16 @@ namespace DispersionModeling.API.Controllers
         {
             _context.DispersionModels.Add(dispersionModel);
             await _context.SaveChangesAsync();
+            
+
+            // GPSLocation gpslocation = new GPSLocation();
+
+            // string [] gpslocationVector ;
+            // for(int i=0;i<20;i++)
+            // for(int j=0;j<20;j++)
+
+            // _context.GPSLocations.Add(gpslocation);
+            // await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDispersionModel", new { id = dispersionModel.Id}, dispersionModel);
             
