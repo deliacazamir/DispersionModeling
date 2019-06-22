@@ -1,0 +1,28 @@
+D:\Dropbox\Licenta\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.exe.config
+D:\Dropbox\Licenta\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.exe
+D:\Dropbox\Licenta\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.pdb
+D:\Dropbox\Licenta\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.csprojResolveAssemblyReference.cache
+D:\Dropbox\Licenta\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.csproj.CoreCompileInputs.cache
+D:\Dropbox\Licenta\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.exe
+D:\Dropbox\Licenta\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.pdb
+f:\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.exe.config
+f:\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.exe
+f:\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.pdb
+f:\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.csprojResolveAssemblyReference.cache
+f:\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.csproj.CoreCompileInputs.cache
+f:\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.exe
+f:\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.pdb
+C:\Users\Delia C\Desktop\Licenta\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.exe.config
+C:\Users\Delia C\Desktop\Licenta\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.exe
+C:\Users\Delia C\Desktop\Licenta\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.pdb
+C:\Users\Delia C\Desktop\Licenta\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.csprojResolveAssemblyReference.cache
+C:\Users\Delia C\Desktop\Licenta\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.csproj.CoreCompileInputs.cache
+C:\Users\Delia C\Desktop\Licenta\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.exe
+C:\Users\Delia C\Desktop\Licenta\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.pdb
+D:\Desktop\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.exe.config
+D:\Desktop\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.exe
+D:\Desktop\DispersiaProject\Dispersia\Dispersia\bin\Debug\Dispersia.pdb
+D:\Desktop\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.csprojAssemblyReference.cache
+D:\Desktop\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.csproj.CoreCompileInputs.cache
+D:\Desktop\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.exe
+D:\Desktop\DispersiaProject\Dispersia\Dispersia\obj\Debug\Dispersia.pdb
