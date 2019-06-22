@@ -20,6 +20,7 @@ export class PollutionSourceFormComponent implements OnInit {
     this.resetForm();
     this.service.getUserInfo(this.authService.decodedToken.nameid);
     console.log(this.authService.decodedToken.nameid);
+    this.service.formData.UserID = this.authService.decodedToken.nameid;
   }
 
   resetForm(form?: NgForm) {
@@ -49,6 +50,7 @@ export class PollutionSourceFormComponent implements OnInit {
       },
       err => {
         console.log(err);
+        this.toastr.error('Submission Failed');
       }
     );
   }

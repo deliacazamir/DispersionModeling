@@ -1,122 +1,84 @@
-<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" >
-        <input type="hidden" name="Id" [value]="service.formDispersionData.Id">
-        <div class="steptwo"></div>
-        <div style="height:30px"> </div>
-        <h2>Dispersion Form</h2>
-        <hr style="height:30px">
+<div style="height:30px"> </div>
+<h2>Compute Dispersion</h2>
+<hr style="height:30px">
 
-        
 
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-door-open"></i>
-                      </div>
-                  </div>
-                  <input name="SmokeExitSpeed" #SmokeExitSpeed="ngModel" [(ngModel)]="service.formDispersionData.SmokeExitSpeed" class="form-control" placeholder="SmokeExitSpeed" required>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-hamsa"></i>
-                      </div>
-                  </div>
-                  <input name="ExitTemperature" #ExitTemperature="ngModel" [(ngModel)]="service.formDispersionData.ExitTemperature" class="form-control" placeholder="ExitTemperature" required>
-              </div>
-          </div>
-      
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-door-open"></i>
-                      </div>
-                  </div>
-                  <input name="CurrentDate" #CurrentDate="ngModel" [(ngModel)]="service.formDispersionData.CurrentDate" class="form-control" placeholder="CurrentDate" required>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-hamsa"></i>
-                      </div>
-                  </div>
-                  <input name="CloudCoverage" #CloudCoverage="ngModel" [(ngModel)]="service.formDispersionData.CloudCoverage" class="form-control" placeholder="CloudCoverage" required>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-hamsa"></i>
-                      </div>
-                  </div>
-                  <input name="AtmosphericConditions" #AtmosphericConditions="ngModel" [(ngModel)]="service.formDispersionData.AtmosphericConditions" class="form-control" placeholder="AtmosphericConditions" required>
-              </div>
-          </div>
-      
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-door-open"></i>
-                      </div>
-                  </div>
-                  <input name="AirTemperature" #AirTemperature="ngModel" [(ngModel)]="service.formDispersionData.AirTemperature" class="form-control" placeholder="AirTemperature" required>
-              </div>
-          </div>
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-prepend">
-                      <div class="input-group-text bg-white">
-                          <i class="fas fa-hamsa"></i>
-                      </div>
-                  </div>
-                  <input name="SolarRadiations" #SolarRadiations="ngModel" [(ngModel)]="service.formDispersionData.SolarRadiations" class="form-control" placeholder="SolarRadiations" required>
-              </div>
-          </div>
-          <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text bg-white">
-                            <i class="fas fa-hamsa"></i>
-                        </div>
-                    </div>
-                    <input name="WindDirection" #WindDirection="ngModel" [(ngModel)]="service.formDispersionData.WindDirection" class="form-control" placeholder="WindDirection" required>
-                </div>
-            </div>
-        
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text bg-white">
-                            <i class="fas fa-door-open"></i>
-                        </div>
-                    </div>
-                    <input name="WindSpeedAtTenMetters" #WindSpeedAtTenMetters="ngModel" [(ngModel)]="service.formDispersionData.WindSpeedAtTenMetters" class="form-control" placeholder="WindSpeedAtTenMetters" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text bg-white">
-                            <i class="fas fa-hamsa"></i>
-                        </div>
-                    </div>
-                    <input name="MaxDistance" #MaxDistance="ngModel" [(ngModel)]="service.formDispersionData.MaxDistance" class="form-control" placeholder="MaxDistance" required>
-                </div>
-            </div>
-      
-      
-        <div class="form-group">
-      
-            <button class="btn btn-succes btn-lg btn-block teal lighten-2" type="submit" [disabled]="form.invalid"><i class="far fa-check-circle"></i>
-                    Submit
-                </button>
-        </div>
+<!-- <div style="height:50px"> </div> -->
 
-      </form>
+<div style="width:150%;margin-left: -180px;">
+
+  <div class="table-responsive"> 
+<table class="table table-hover table-striped">
+  <thead class="bg-default text-light">
+    <tr>
+      <th>Station name</th>  
+      <th>Description</th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+      <th>Altitude</th>
+      <th>Chimney Height</th>
+      <th>Chimney Diameter</th>
+      <th>Terrain type</th>
+
+
+  </tr>
+  </thead>
+  <tr *ngFor="let stp of pollutionSource.pollutionSource" > 
+        <td>{{stp.Name}}</td>
+        <td>{{stp.Description}}</td>
+        <td>{{stp.Longitude}}</td>
+        <td>{{stp.Latitude}}</td>
+        <td>{{stp.Altitude}}</td>
+        <td>{{stp.ChimneyHeight}}</td>
+        <td>{{stp.ChimneyDiameter}}</td>
+        <td>{{stp.TerrainType}}</td>
+  </tr>
+</table> 
+</div>
+
+<div style ="height:30px"> </div>
+  
+<div class="table-responsive">
+  <table class="table table-hover table-striped table-sm  ">
+    <thead class="bg-default text-light">
+      <tr>
+        <th>Smoke Exit Speed</th>  
+        <th>Smoke Exit Temperature</th>
+        <th>Emission Of Pollutants Concentration</th>  
+        <th>Current Date</th>
+        <th>Cloud Coverage</th>  
+        <th>Atmospheric Conditions</th>
+        <th>Air Temperature</th>
+        <th>Solar Radiations</th>
+        <th>Wind Direction</th>
+        <th>Wind Speed </th>
+        <th>Max Distance</th> 
+    </tr>
+</thead>
+
+    <tr *ngFor="let stp of service.dispersionList" > 
+          <td>{{stp.SmokeExitSpeed}}</td>
+          <td>{{stp.ExitTemperature}}</td>
+          <td>{{stp.EmissionOfPollutantsConcentration}}</td>
+          <td>{{stp.CurrentDate}}</td>
+          <td>{{stp.CloudCoverage}}</td>
+          <td>{{stp.AtmosphericConditions}}</td>
+          <td>{{stp.AirTemperature}}</td>
+          <td>{{stp.SolarRadiations}}</td>
+          <td>{{stp.WindDirection}}</td>
+          <td>{{stp.WindSpeedAtTenMetters}}</td>
+          <td>{{stp.MaxDistance}}</td>
+          <!-- <td>{{stp.PollutantID}}</td> -->
+    </tr>
+  </table>
+  </div>
+</div>
+
+<div style ="height:30px"> </div>
+
+<button class="btn btn-default btn-lg btn-block teal lighten-2" type="button" (click)="calculateDispersion()">
+<i class="far fa-check-circle"></i>
+ Calculate dispersion
+</button>
+
+

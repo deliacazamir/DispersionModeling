@@ -15,10 +15,10 @@ export class HomeComponent implements OnInit {
   private map: google.maps.Map = null;
   private heatmap: google.maps.visualization.HeatmapLayer = null;
 
-
-  longitude = 40.922326;
-  latitude = 72.637078;
-  zoom = 13;
+  //18.952135, -71.200324
+  longitude = -71.200324;
+  latitude = 18.952135;
+  zoom = 5;
   mapType = "satellite";
 
   public data: any;
@@ -566,8 +566,6 @@ export class HomeComponent implements OnInit {
     };
   }
 
-
-
   public onGenerateRandomDataClick(): void {
     this.data = {
       max: 5,
@@ -599,8 +597,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
    this.service.refreshPollutantList();
-   console.log(this.service.pollutantList);
-   //console.log(this.id);
+  // console.log(this.service.pollutantList);
+   console.log(this.latitude);
+   console.log(this.longitude);
   }
 
  

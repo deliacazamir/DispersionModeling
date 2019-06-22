@@ -1,3 +1,4 @@
+import { AuthService } from './../../_services/auth.service';
 import { StationTypeService } from './../../_services/station-type.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm, FormControl } from '@angular/forms';
@@ -12,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 
 export class UserDataFormComponent implements OnInit {
 
-  constructor(public service: StationTypeService, private toastr: ToastrService) { }
+  constructor(public service: StationTypeService, private toastr: ToastrService, public authService: AuthService) { }
   
   shifter: boolean = false;
   id: number;
@@ -21,14 +22,16 @@ export class UserDataFormComponent implements OnInit {
 
   ngOnInit() {
     this.service.refreshList();
-    this.resetForm();    
+    this.resetForm(); 
+    console.log(this.authService.decodedToken.nameid);   
   }
 
-  
+
   selected() {
     this.shifter = true;
     this.service.refreshListStp(this.id);
     this.service.formDispersionData.PollutantID = this.idPollutant;
+    this.service.udmData.UserID = this.authService.decodedToken.nameid;
   }
 
   resetForm(form?: NgForm) {
@@ -50,6 +53,10 @@ export class UserDataFormComponent implements OnInit {
       WindSpeedAtTenMetters: 0.0,
       MaxDistance: 0.0,
       PollutantID: 0
+    }
+    this.service.udmData = {
+      UserID: 0,
+      DispersionModelID: 0
     }
   }
 

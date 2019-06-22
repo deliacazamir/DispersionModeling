@@ -15,15 +15,15 @@ namespace DispersionModeling.API.Data
         public DbSet<StationType> StationTypes { get; set; }
         public DbSet<Pollutant> Pollutants { get; set; }
         public DbSet<StationTypePollutant> StationTypePollutants { get; set; }
-        //public DbSet<UserDispersionModel> UserDispersionModels { get; set; }
+        public DbSet<UserDispersionModel> UserDispersionModels { get; set; }
       
         protected override void OnModelCreating(ModelBuilder modelBuilder)    
         {                                                 
             modelBuilder.Entity<StationTypePollutant>()             
                 .HasKey(x => new {x.PollutantID, x.StationTypeID});
 
-            // modelBuilder.Entity<UserDispersionModel>()             
-            //     .HasKey(x => new {x.UserID, x.DispersionModelID});
+            modelBuilder.Entity<UserDispersionModel>()             
+                .HasKey(x => new {x.UserID, x.DispersionModelID});
 
             modelBuilder.Entity<GPSLocation>()
             .HasKey(o => new { o.Latitude, o.Longitude, o.PollutantID });

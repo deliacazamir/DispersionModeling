@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { STP } from '../_models/stp.model';
 import { PollutantList } from '../_models/pollutant-list.model';
 import { Dispersion } from '../_models/dispersion.model';
+import { UDM } from '../_models/udm.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,11 @@ export class StationTypeService {
   pollutantList: PollutantList[];
 
   formDispersionData: Dispersion;
+  dispersionList: Dispersion[];
+
+  udmData: UDM;
+
+  inputsForAlgorithmList: any;
 
   readonly rootURL = 'http://localhost:5000/api/';
 
@@ -35,26 +41,34 @@ export class StationTypeService {
     return this.http.post( this.rootURL + 'StationType', stationData);
   }
 
+  postUDMForm(udmData: UDM) {
+    return this.http.post( this.rootURL + 'UserDispersionModel', udmData);
+  }
+
+
   refreshList() {
     this.http.get( this.rootURL + 'StationType')
     .toPromise()
     .then(res => this.list = res as StationType[]);
   }
 
+  getDispersionListForUser(id: number) {
+    this.http.get( this.rootURL + 'Dispersion/' + id)
+    .toPromise()
+    .then(res => this.dispersionList = res as Dispersion[]);
+  }
 
-  refreshListStp(id:number) {
+  refreshListStp(id: number) {
     this.http.get( this.rootURL + 'StationTypePollutant/'+id)
     .toPromise()
     .then(res => this.stpList = res as STP[]);
   }
 
- 
-
-  // refreshPollutantList() {
-  //   this.http.get( this.rootURL + 'pollutant')
-  //   .toPromise()
-  //   .then(res => this.pollutantList = res as PollutantList[]);
-  // }
+  getPollutantList() {
+    this.http.get( this.rootURL + 'pollutant')
+    .toPromise()
+    .then(res => this.pollutantList = res as PollutantList[]);
+  }
 
   // selectFromStpList(id: number) {
   //   this.stpList.forEach(element => {

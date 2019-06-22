@@ -48,7 +48,7 @@
 <div class="form-group">
   <div class="md-form">
     <input name="PollutantID" #PollutantID="ngModel" [(ngModel)]="service.formDispersionData.PollutantID"  value ="{{idPollutant}}" placeholder= "{{idPollutant}}" mdbInput type="text" id="form1" class="form-control" >
-    <label for="form1" class="">Id, care ar trebuie sa se completeze automat</label>
+    <label for="form1" class="">Id, care ar trebuie sa se completeze automat </label>
   </div>
 </div>
 
@@ -80,7 +80,7 @@
           <!-- Material input -->
           <div class="md-form">
                   <input name="ExitTemperature" #ExitTemperature="ngModel" [(ngModel)]="service.formDispersionData.ExitTemperature"  mdbInput type="text" id="form1" class="form-control" >
-                  <label for="form1" class="">Exit Temperature</label>
+                  <label for="form1" class="">Smoke Exit Temperature</label>
           </div>
       </div>
       <!-- Grid column -->
@@ -184,7 +184,7 @@
             <!-- Material input -->
             <div class="md-form">
                     <input name="WindSpeedAtTenMetters" #WindSpeedAtTenMetters="ngModel" [(ngModel)]="service.formDispersionData.WindSpeedAtTenMetters"  mdbInput type="text" id="form1" class="form-control" >
-                    <label for="form1" class="">Wind Speed At 10 Metters</label>
+                    <label for="form1" class="">Wind Speed </label>
             </div>
         </div>
         <!-- Grid column -->
@@ -201,6 +201,22 @@
                 <label for="form1" class="">Max Distance</label>
         </div>
     </div>
+
+
+
+    <!-- <div class="form-group">
+      <div class="md-form">
+        <input name="UserID" #UserID="ngModel" [(ngModel)]="service.udmData.UserID"  value ="{{authService.decodedToken.nameid}}" placeholder= "{{authService.decodedToken.nameid}}" mdbInput type="text" id="form1" class="form-control" >
+        <label for="form1" class="">Id, User {{authService.decodedToken.unique_name}}</label>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="md-form">
+        <input name="DispersionModelID" #DispersionModelID="ngModel" [(ngModel)]="service.udmData.DispersionModelID"  value ="{{service.formDispersionData.Id}}" placeholder= "{{service.formDispersionData.Id}}" mdbInput type="text" id="form1" class="form-control" >
+        <label for="form1" class="">Id, Dispersion Model {{authService.decodedToken.unique_name}}</label>
+      </div>
+    </div> -->
 
 
   <div class="form-group">
