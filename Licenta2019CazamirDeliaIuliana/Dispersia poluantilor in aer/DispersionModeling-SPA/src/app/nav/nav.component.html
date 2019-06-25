@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-#26a69a teal lighten-1 ">
+    <a class="navbar-brand" routerLink="/home">Dispersion Modeling</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+                <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/about">About</a>
+            </li>
+            <li *ngIf="loggedIn()" class="nav-item">
+                <a class="nav-link" routerLink="/create-map">Create Map</a>
+            </li>
+
+             <!-- Dropdown -->
+             <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                Basic dropdown<span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
+                </div>
+            </li>
+
+        </ul>
+
+        <div *ngIf="loggedIn()">
+            <a class="text-light" (click)="loggedOut()">
+                <mdb-icon fas icon="sign-out-alt"></mdb-icon>
+                Logout
+            </a>
+        </div>
+
+        <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()">
+            <input class="form-control mr-sm-2" type="text" name="usename" placeholder="Username" required [(ngModel)]="model.username">
+            <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required [(ngModel)]="model.password">
+            <button [disabled]="!loginForm.valid" class="btn btn-outline text-light" type="submit">Login</button>
+        </form>
+    </div>
+
+</nav>
