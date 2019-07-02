@@ -4,14 +4,16 @@ using DispersionModeling.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DispersionModeling.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20190630113214_act udm_4")]
+    partial class actudm_4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +39,7 @@ namespace DispersionModeling.API.Migrations
 
                     b.Property<double>("ExitTemperature");
 
-                    b.Property<bool>("HasMap");
+                    b.Property<string>("HitmapName");
 
                     b.Property<double>("MaxDistance");
 

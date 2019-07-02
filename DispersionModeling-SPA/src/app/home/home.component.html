@@ -1,6 +1,6 @@
 <div style="height:30px"> </div>
 
-<div class="btn-group ">
+<!-- <div class="btn-group ">
   <button type="button" class="btn btn-default text-light">Please choose pollutant to see dispersion</button>
   <button type="button" class="btn btn-default dropdown-toggle dropdown-toggle-split text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="sr-only">Toggle Dropdown</span>
@@ -11,34 +11,80 @@
   </div>
 </div>
 
+<div class="btn-group ">
+    <button type="button" class="btn btn-default text-light">Please choose pollutant to see dispersion</button>
+    <button type="button" class="btn btn-default dropdown-toggle dropdown-toggle-split text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu" >
+      <a class="dropdown-item" *ngFor="let stp of service.gpsList" >{{stp.PollutantID}}</a>
+   
+    </div>
+  </div> -->
+
+  <div class="row">
+
+      <div class="col">
+      <!-- <div>
+        <h5>Please choose Power Plant Type: </h5>
+      </div>
+  
+      <div style="height:30px"> </div> -->
+  
+      <label for="form1" class=" label label-success">Pollutant:</label>
+      <select class="browser-default custom-select" (change)="selected()" [(ngModel)]="idPollutant">
+        <!-- <option selected [ngValue]="0">Power Plant</option> -->
+        <option *ngFor="let st of service.pollutantList" [ngValue]="st.Id">{{st.Name}}</option>
+      </select>
+       
+      </div>
+  
+      <div class="col">
+      <!-- <div>
+        <h5>Choose Pollutant to calculate dispersion: </h5>
+      </div>
+  
+      <div style="height:30px"> </div> -->
+      <label for="form1" class="label">Pollutant Properties:</label>
+      <select class="browser-default custom-select" (change)="selectedLocation()" [(ngModel)]="idLocation" >
+        <!-- <option selected [ngValue]="0">Power Plant</option> -->
+        <option *ngFor="let stp of service.gpsPollutantList" [ngValue]="stp">{{stp.Longitude}}, {{stp.Latitude}}, {{stp.Concentration}}</option>
+      </select>
+      </div>
+   
+  </div>
+
 
 <span class="border border-light">
 <agm-map [zoom]="zoom" [latitude]="latitude" [longitude]="longitude" (mapClick)="onChoseLocation($event)" (mapReady)="onMapLoad($event)">
     <agm-marker [latitude]="latitude" [longitude]="longitude" *ngIf="locationChosen">
     </agm-marker>
+    <!-- <agm-overlay
+    [latitude]  = "latitude"
+    [longitude] = "longitude"
+    [bounds] = "{x:{latitude:-0.008,longitude:-0.0102},
+                 y:{latitude:0.008,longitude:0.0102}}">
+    
+    <div style ="background-image: url('assets/images/test.png');"></div>
+  </agm-overlay> -->
     <div class="map__scale"></div>
 </agm-map>
 
+<div class="col-md-3 col-sm-12 col-xs-12">
+    <button (click)="setMapType('terrain')" class="btn btn-primary">Terrain</button>
+    <button (click)="setMapType('satellite')" class="btn btn-danger">Satellite</button>
+    <button (click)="setMapType('roadmap')" class="btn btn-warning">Road Map</button>
+</div>
+
+<form class="form-inline" #form="ngForm" (ngSubmit)="setCenter($event)" ac>
+    <div class="form-group">
+      <input type="text" class="form-control" name="latitude" [(ngModel)]="latitude" placeholder="Enter latitude" required>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="longitude" [(ngModel)]="longitude" placeholder="Enter longitude" required>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Go</button>
+  </form>
+
 <div style="height:30px"> </div>
-
-
-
 <div class="map__scale"></div>
-<!--
-<ngx-heatmap [height]="height"
-[width]="width"
-[maxDataPoints]="500"
-[minDataPoints]="500"
-[heatPoints]="data">
-</ngx-heatmap>
-
-</span>
-
-<h1>AICI a fost odata ca niciodata google maps.  
-</h1>
-
-<button (click)="onGenerateRandomDataClick()">Generate</button>
-Height: <input type="text" [(ngModel)]="height" [ngModelOptions]="{standAlone: true}"><br>
-Width: <input type="text" [(ngModel)]="width" [ngModelOptions]="{standAlone: true}"><br>
-
--->

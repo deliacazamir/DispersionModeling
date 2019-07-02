@@ -1,26 +1,37 @@
-<div>
-  <h4>Please choose Power Plant Type: </h4>
+
+<div class="row">
+
+    <div class="col">
+		<!-- <div>
+		  <h5>Please choose Power Plant Type: </h5>
+		</div>
+
+		<div style="height:30px"> </div> -->
+
+    <label for="form1" class=" label label-success">Power Plant Type:</label>
+		<select class="browser-default custom-select" (change)="selected()" [(ngModel)]="id">
+		  <!-- <option selected [ngValue]="0">Power Plant</option> -->
+		  <option *ngFor="let st of service.list" [ngValue]="st.Id">{{st.Name}}</option>
+		</select>
+		 
+    </div>
+
+    <div class="col">
+		<!-- <div>
+		  <h5>Choose Pollutant to calculate dispersion: </h5>
+		</div>
+
+		<div style="height:30px"> </div> -->
+    <label for="form1" class="label">Pollutant Type:</label>
+		<select class="browser-default custom-select" (change)="selected()" [(ngModel)]="idPollutant">
+		  <!-- <option selected [ngValue]="0">Power Plant</option> -->
+		  <option *ngFor="let stp of service.stpList" [ngValue]="stp.Id">{{stp.Name}}</option>
+		</select>
+    </div>
+ 
 </div>
 
-<div style="height:30px"> </div>
 
-<select class="browser-default custom-select" (change)="selected()" [(ngModel)]="id">
-  <!-- <option selected [ngValue]="0">Power Plant</option> -->
-  <option *ngFor="let st of service.list" [ngValue]="st.Id">{{st.Name}}</option>
-</select>
-
-<div style="height:30px"> </div>
-
-<div>
-  <h4>Please choose Pollutant to calculate dispersion: </h4>
-</div>
-
-<div style="height:30px"> </div>
-
-<select class="browser-default custom-select" (change)="selected()" [(ngModel)]="idPollutant">
-  <!-- <option selected [ngValue]="0">Power Plant</option> -->
-  <option *ngFor="let stp of service.stpList" [ngValue]="stp.Id">{{stp.Name}}</option>
-</select>
 
 
 <form #form="ngForm"  (submit)="onSubmit(form)" >
@@ -29,8 +40,8 @@
 
   <div class="steptwo"></div>
   <div style="height:30px"> </div>
-  <h2>Dispersion Form</h2>
-  <hr style="height:30px">
+  <!-- <h5>Dispersion Form Info: </h5> -->
+  <!-- <hr style="height:30px"> -->
 
   
   
@@ -47,8 +58,8 @@
 
 <div class="form-group">
   <div class="md-form">
-    <input name="PollutantID" #PollutantID="ngModel" [(ngModel)]="service.formDispersionData.PollutantID"  value ="{{idPollutant}}" placeholder= "{{idPollutant}}" mdbInput type="text" id="form1" class="form-control" >
-    <label for="form1" class="">Id, care ar trebuie sa se completeze automat </label>
+    <input name="PollutantID" #PollutantID="ngModel" [(ngModel)]="service.formDispersionData.PollutantID"  value ="{{idPollutant}}" placeholder= "{{idPollutant}}" mdbInput type="text" id="form1" class="form-control" hidden>
+    <!-- <label for="form1" class="">Id, care ar trebuie sa se completeze automat </label> -->
   </div>
 </div>
 
@@ -101,7 +112,7 @@
   <div class="col">
       <!-- Material input -->
       <div class="md-form">
-              <input name="CurrentDate" #CurrentDate="ngModel" [(ngModel)]="service.formDispersionData.CurrentDate" mdbInput type="text" id="form1" class="form-control" >
+              <input name="CurrentDate" #CurrentDate="ngModel" [(ngModel)]="service.formDispersionData.CurrentDate" mdbInput type="text" id="form1" class="form-control"  >
               <label for="form1" class="">Current Date</label>
       </div>
   </div>
@@ -123,46 +134,6 @@
 </div>
 
 
-    <div class="form-group">
-      <!-- Material form grid -->
-  
-      <!-- Grid row -->
-      <div class="row">
-      <!-- Grid column -->
-      <div class="col">
-          <!-- Material input -->
-          <div class="md-form">
-                  <input name="CloudCoverage" #CloudCoverage="ngModel" [(ngModel)]="service.formDispersionData.CloudCoverage"  mdbInput type="text" id="form1" class="form-control" >
-                  <label for="form1" class="">Cloud Coverage</label>
-          </div>
-      </div>
-      <!-- Grid column -->
-  
-      <!-- Grid column -->
-      <div class="col">
-          <!-- Material input -->
-          <div class="md-form">
-                  <input name="AtmosphericConditions" #AtmosphericConditions="ngModel" [(ngModel)]="service.formDispersionData.AtmosphericConditions"  mdbInput type="text" id="form1" class="form-control" >
-                  <label for="form1" class="">Atmospheric Conditions</label>
-          </div>
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col">
-          <!-- Material input -->
-          <div class="md-form">
-                  <input name="SolarRadiations" #SolarRadiations="ngModel" [(ngModel)]="service.formDispersionData.SolarRadiations" mdbInput type="text" id="form1" class="form-control" >
-                  <label for="form1" class="">Solar Radiations </label>
-          </div>
-      </div>
-      <!-- Grid column -->
-      </div>
-      <!-- Grid row -->
-  
-<!-- Material form grid -->
-</div>
-
 
       <div class="form-group">
         <!-- Material form grid -->
@@ -170,53 +141,61 @@
         <!-- Grid row -->
         <div class="row">
         <!-- Grid column -->
-        <div class="col">
-            <!-- Material input -->
-            <div class="md-form">
-                    <input name="WindDirection" #WindDirection="ngModel" [(ngModel)]="service.formDispersionData.WindDirection" mdbInput type="text" id="form1" class="form-control" >
-                    <label for="form1" class="">Wind Direction</label>
-            </div>
+          <div class="col">
+              <!-- Material input -->
+              <div class="md-form">
+                      <input name="WindDirection" #WindDirection="ngModel" [(ngModel)]="service.formDispersionData.WindDirection" mdbInput type="text" id="form1" class="form-control" >
+                      <label for="form1" class="">Wind Direction</label>
+              </div>
+          </div>
+          <!-- Grid column -->
+        
+          <!-- Grid column -->
+          <div class="col">
+              <!-- Material input -->
+              <div class="md-form">
+                      <input name="WindSpeedAtTenMetters" #WindSpeedAtTenMetters="ngModel" [(ngModel)]="service.formDispersionData.WindSpeedAtTenMetters"  mdbInput type="text" id="form1" class="form-control" >
+                      <label for="form1" class="">Wind Speed </label>
+              </div>
+          </div>
+
+          <div class="col">
+              <!-- Material input -->
+              <div class="md-form">
+                  <input name="MaxDistance" #MaxDistance="ngModel" [(ngModel)]="service.formDispersionData.MaxDistance" mdbInput type="text" id="form1" class="form-control" >
+                  <label for="form1" class="">Maximum Distance</label>
+              </div>
+          </div>   
         </div>
-        <!-- Grid column -->
-      
-        <!-- Grid column -->
-        <div class="col">
-            <!-- Material input -->
-            <div class="md-form">
-                    <input name="WindSpeedAtTenMetters" #WindSpeedAtTenMetters="ngModel" [(ngModel)]="service.formDispersionData.WindSpeedAtTenMetters"  mdbInput type="text" id="form1" class="form-control" >
-                    <label for="form1" class="">Wind Speed </label>
-            </div>
-        </div>
-        <!-- Grid column -->
-        </div>
-        <!-- Grid row -->
-      
-      <!-- Material form grid -->
       </div>
 
 
       <div class="form-group">
-        <div class="md-form">
-                <input name="MaxDistance" #MaxDistance="ngModel" [(ngModel)]="service.formDispersionData.MaxDistance" mdbInput type="text" id="form1" class="form-control" >
-                <label for="form1" class="">Max Distance</label>
-        </div>
-    </div>
-
-
-
-    <!-- <div class="form-group">
-      <div class="md-form">
-        <input name="UserID" #UserID="ngModel" [(ngModel)]="service.udmData.UserID"  value ="{{authService.decodedToken.nameid}}" placeholder= "{{authService.decodedToken.nameid}}" mdbInput type="text" id="form1" class="form-control" >
-        <label for="form1" class="">Id, User {{authService.decodedToken.unique_name}}</label>
-      </div>
-    </div>
+          <!-- Material form grid -->
+      
+          <!-- Grid row -->
+          <div class="row">
+          <!-- Grid column -->
+          <div class="col">
+              <label for="form1" class="label">Cloud Coverage</label>
+              <select class="form-control" (change)="selectCloudCoverage()"  [(ngModel)]="idCloudCoverage" [ngModelOptions]="{standalone: true}">
+                   <option *ngFor="let st of cloudCoverageList" [ngValue]="st">{{st}}</option>
+              </select>
+              <input name="CloudCoverage" #CloudCoverage="ngModel" [(ngModel)]="service.formDispersionData.CloudCoverage"  mdbInput type="text" id="form1" class="form-control"hidden >
+              
+          </div>
     
-    <div class="form-group">
-      <div class="md-form">
-        <input name="DispersionModelID" #DispersionModelID="ngModel" [(ngModel)]="service.udmData.DispersionModelID"  value ="{{service.formDispersionData.Id}}" placeholder= "{{service.formDispersionData.Id}}" mdbInput type="text" id="form1" class="form-control" >
-        <label for="form1" class="">Id, Dispersion Model {{authService.decodedToken.unique_name}}</label>
-      </div>
-    </div> -->
+          <div class="col">
+              <label for="form1" class="label">Solar Radiation</label>
+              <select class="form-control" (change)="selectSolarRadiation()"  [(ngModel)]="idSolarRadiations" [ngModelOptions]="{standalone: true}">
+                 <option *ngFor="let st of solarRadiationsList" [ngValue]="st">{{st}}</option>
+              </select>
+              <input name="SolarRadiations" #SolarRadiations="ngModel" [(ngModel)]="service.formDispersionData.SolarRadiations"  mdbInput type="text" id="form1" class="form-control"hidden >
+          </div>
+      
+         </div>  
+        </div>
+
 
 
   <div class="form-group">
@@ -230,45 +209,5 @@
 
 
 
-<!-- <div style="height:80px"> </div>
-
-<div *ngIf="shifter">
-  <table class="table table-hover">
-    <title>STP</title>
-      <tr>
-        <th>Pollutant Name</th>  
-        <th>Chemical Formula</th>
-    </tr>
-    <tr *ngFor="let stp of service.stpList" > 
-          <td>{{stp.Name}}</td>   
-          <td>{{stp.ChemicalFormula}}</td>  
-    </tr>
-  </table>
-</div> -->
 
 
-
-
-<!-- <div style="height:80px"> </div>
-
-<div *ngIf="helpVar">
-  <table class="table table-hover">
-    <title>STP</title>
-      <tr>
-        <th>StationTypeID</th>  
-        <th>PollutantID</th>
-    </tr>
-    <tr *ngFor="let stp of service.pollutantList" > 
-          <td>{{stp.Id}}</td>
-          <td>{{stp.Name}}</td>
-          <td>{{stp.ChemicalFormula}}</td>
-          <td>{{stp.Unit}}</td>
-          <td>{{stp.IsCarcinogenic}}</td>
-          <td>{{stp.SedimentationSpeed}}</td>
-          <td>{{stp.StateOfAggregation}}</td>
-          <td>{{stp.LegislativeValue}}</td>
-          <td>{{stp.OrganicType}}</td>
-
-    </tr>
-  </table>
-</div> -->

@@ -13,6 +13,9 @@ export class PollutionSourceFormComponent implements OnInit {
 
   // loggedUserInfo = this.service.getUserInfo(this.authService.decodedToken.nameid);
 
+  terrainTypeList = ['URBAN','RURAL']
+  idTerrainType: string;
+
   constructor(public service: PollutionSourceService, private toastr: ToastrService,
     public authService: AuthService) { }
 
@@ -41,6 +44,12 @@ export class PollutionSourceFormComponent implements OnInit {
     }
     
   }
+
+  selected() {
+    console.log('S-a selectat:'+this.idTerrainType );
+    this.service.formData.TerrainType = this.idTerrainType;
+  }
+
 
   onSubmit(form: NgForm) {
     this.service.postForm(form.value).subscribe(

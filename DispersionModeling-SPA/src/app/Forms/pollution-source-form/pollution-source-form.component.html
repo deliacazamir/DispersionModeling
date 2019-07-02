@@ -2,7 +2,7 @@
   <input type="hidden" name="Id" [value]="service.formData.Id">
   <div class="steptwo"></div>
   <div style="height:30px"> </div>
-  <h2>Pollution Source Form For:  {{authService.decodedToken.unique_name}}  </h2>
+  <h4>Pollution Source Form :  {{authService.decodedToken.unique_name}}  </h4>
   <hr style="height:30px">
 
     <div class="form-group">
@@ -92,10 +92,21 @@
 
     <div class="form-group">
         <div class="md-form">
-                <input name="TerrainType" #TerrainType="ngModel" [(ngModel)]="service.formData.TerrainType" mdbInput type="text" id="form1" class="form-control" required>
-                <label for="form1" class="">Terrain Type</label>
+                 <input name="TerrainType" #TerrainType="ngModel" [(ngModel)]="service.formData.TerrainType" value="{{idTerrainType}}" mdbInput type="text" id="form1" class="form-control" hidden>
+                 
         </div>
     </div>
+
+    <div class="form-group">
+                <label for="form1" class="label">Terrain Type</label>
+                <select class="form-control" (change)="selected()"  [(ngModel)]="idTerrainType" [ngModelOptions]="{standalone: true}">
+                                <option *ngFor="let st of terrainTypeList" [ngValue]="st">{{st}}</option>
+                </select>
+
+                <div class="md-form">
+                         <input name="UserID" #UserID="ngModel" [(ngModel)]="service.formData.UserID" value="{{authService.de}}" mdbInput type="text" id="form1" class="form-control" hidden>
+                </div>
+            </div>
 
     <!-- <input name="TerrainType" #TerrainType="ngModel" [(ngModel)]="service.formData.TerrainType" class="form-control" placeholder="Terrain Type" required> -->
 

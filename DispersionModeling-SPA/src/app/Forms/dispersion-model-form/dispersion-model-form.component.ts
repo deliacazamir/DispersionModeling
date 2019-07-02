@@ -15,10 +15,10 @@ import { isNull } from 'util';
 })
 export class DispersionModelFormComponent implements OnInit {
 
-  currentPollutantSource :any
+  currentPollutantSource :any;
   currentDispersionModel : any;
   currentPollutant : any;
-  myelement:any 
+  myelement:any; 
 
   constructor(public service: StationTypeService, public pollutionSource: PollutionSourceService 
     ,  private authService: AuthService) { }
@@ -75,7 +75,7 @@ export class DispersionModelFormComponent implements OnInit {
       //this.service.inputsForAlgorithmList.push(this.currentPollutant);
      // this.service.inputsForAlgorithmList.push.apply(this.service.inputsForAlgorithmList,this.currentPollutantSource);
 
-     console.log("AICI e o lista goala momentan: " + this.service.inputsForAlgorithmList)
+     console.log("AICI e o lista goala momentan: " + this.service.inputsForAlgorithmList);
 
   }
 

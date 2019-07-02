@@ -9,7 +9,7 @@
                 <!-- Stepers Wrapper -->
                 <ul class="stepper stepper-horizontal">
     
-                    <li class="completed" >
+                    <li [ngClass]='var21'>
                         <a (click)="nextForm1()">
                             <span class="circle">1</span>
                             <span class="label ">First step</span>
@@ -17,14 +17,14 @@
                         </a>
                     </li>
     
-                    <li class="active">
+                    <li [ngClass]='var22'>
                         <a (click)="nextForm2()">
                             <span class="circle">2</span>
                             <span class="label">Second step</span>
                         </a>
                     </li>
     
-                    <li class="active" >
+                    <li [ngClass]='var23'>
                         <a (click)="nextForm3()">
                             <span class="circle">3</span>
                             <span class="label">Third step</span>

@@ -2,6 +2,7 @@ import { PollutionSourceService } from './_services/pollution-source.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AgmCoreModule ,GoogleMapsAPIWrapper } from '@agm/core';
+import { AgmOverlays } from "agm-overlays";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +41,7 @@ import { NgxHeatMapModule } from 'ngx-heatmap';
       MDBBootstrapModule.forRoot(),
       BrowserAnimationsModule,
       ToastrModule.forRoot(),
+      AgmOverlays,
       AgmCoreModule.forRoot({ apiKey:'AIzaSyCJyKlVTHuJ4mmdXWWtEaRqAt62HQ5NYzY',libraries:['visualization','places', 'drawing', 'geometry']}),
       NgxHeatMapModule
    ],

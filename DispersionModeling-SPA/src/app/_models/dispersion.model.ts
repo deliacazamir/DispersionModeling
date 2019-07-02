@@ -4,12 +4,12 @@ export class Dispersion {
     SmokeExitSpeed: number;
     ExitTemperature: number;
     EmissionOfPollutantsConcentration: number;
-    CurrentDate: Date;
+    CurrentDate: string;
     CloudCoverage: number;
     AtmosphericConditions: number;
     AirTemperature: number;
     SolarRadiations: number;
-    WindDirection: string;
+    WindDirection: number;
     WindSpeedAtTenMetters: number;
     MaxDistance: number;
     PollutantID: number;
