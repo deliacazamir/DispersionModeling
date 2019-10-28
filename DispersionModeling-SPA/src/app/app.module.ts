@@ -42,7 +42,7 @@ import { NgxHeatMapModule } from 'ngx-heatmap';
       BrowserAnimationsModule,
       ToastrModule.forRoot(),
       AgmOverlays,
-      AgmCoreModule.forRoot({ apiKey:'AIzaSyCJyKlVTHuJ4mmdXWWtEaRqAt62HQ5NYzY',libraries:['visualization','places', 'drawing', 'geometry']}),
+      AgmCoreModule.forRoot({ apiKey:'',libraries:['visualization','places', 'drawing', 'geometry']}),
       NgxHeatMapModule
    ],
  
